@@ -17,6 +17,9 @@
 		3AB1AD20249C393000334311 /* CoreDataTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AB1AD1F249C393000334311 /* CoreDataTask.swift */; };
 		3AB1AD23249C523300334311 /* Wunderlist.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3AB1AD21249C523300334311 /* Wunderlist.xcdatamodeld */; };
 		3AB1AD25249C55EB00334311 /* ToDoList+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AB1AD24249C55EB00334311 /* ToDoList+Convenience.swift */; };
+		3AB1AD27249C5A5800334311 /* ToDoItemRepresentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AB1AD26249C5A5800334311 /* ToDoItemRepresentation.swift */; };
+		3AB1AD29249C5AD300334311 /* ToDoListRepresentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AB1AD28249C5AD300334311 /* ToDoListRepresentation.swift */; };
+		3AB1AD2B249C5B6900334311 /* ToDoItemController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AB1AD2A249C5B6900334311 /* ToDoItemController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +35,9 @@
 		3AB1AD1F249C393000334311 /* CoreDataTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataTask.swift; sourceTree = "<group>"; };
 		3AB1AD22249C523300334311 /* Wunderlist.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Wunderlist.xcdatamodel; sourceTree = "<group>"; };
 		3AB1AD24249C55EB00334311 /* ToDoList+Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ToDoList+Convenience.swift"; sourceTree = "<group>"; };
+		3AB1AD26249C5A5800334311 /* ToDoItemRepresentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoItemRepresentation.swift; sourceTree = "<group>"; };
+		3AB1AD28249C5AD300334311 /* ToDoListRepresentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoListRepresentation.swift; sourceTree = "<group>"; };
+		3AB1AD2A249C5B6900334311 /* ToDoItemController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoItemController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +102,7 @@
 		3AB1AD17249C37CA00334311 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				3AB1AD2A249C5B6900334311 /* ToDoItemController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -105,6 +112,8 @@
 			children = (
 				3AB1AD1C249C386E00334311 /* ToDo+Convenience.swift */,
 				3AB1AD24249C55EB00334311 /* ToDoList+Convenience.swift */,
+				3AB1AD26249C5A5800334311 /* ToDoItemRepresentation.swift */,
+				3AB1AD28249C5AD300334311 /* ToDoListRepresentation.swift */,
 				3AB1AD1E249C391E00334311 /* CoreData */,
 			);
 			path = Model;
@@ -194,9 +203,12 @@
 				3AB1AD02249B030400334311 /* AppDelegate.swift in Sources */,
 				3AB1AD04249B030400334311 /* SceneDelegate.swift in Sources */,
 				3AB1AD1D249C386E00334311 /* ToDo+Convenience.swift in Sources */,
+				3AB1AD29249C5AD300334311 /* ToDoListRepresentation.swift in Sources */,
 				3AB1AD25249C55EB00334311 /* ToDoList+Convenience.swift in Sources */,
+				3AB1AD2B249C5B6900334311 /* ToDoItemController.swift in Sources */,
 				3AB1AD23249C523300334311 /* Wunderlist.xcdatamodeld in Sources */,
 				3AB1AD20249C393000334311 /* CoreDataTask.swift in Sources */,
+				3AB1AD27249C5A5800334311 /* ToDoItemRepresentation.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
