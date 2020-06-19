@@ -1,5 +1,5 @@
 //
-//  ToDo+Convenience.swift
+//  ToDoList+Convenience.swift
 //  Wunderlist2.0
 //
 //  Created by Claudia Contreras on 6/18/20.
@@ -9,18 +9,16 @@
 import Foundation
 import CoreData
 
-extension ToDoItem {
+extension ToDoList {
     @discardableResult convenience init(id: UUID = UUID(),
                                         title: String,
                                         date: Date,
                                         complete: Bool,
-                                        toDoDescription: String,
                                         context: NSManagedObjectContext = CoreDataStack.shared.mainContext) {
         self.init(context: context)
         self.id = id
         self.title = title
         self.date = date
         self.complete = complete
-        self.toDoDescription = toDoDescription
     }
 }
