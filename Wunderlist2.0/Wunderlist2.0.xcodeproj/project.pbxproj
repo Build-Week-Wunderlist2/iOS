@@ -7,11 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		38423348249DA42400E107DF /* WunderListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38423347249DA42400E107DF /* WunderListViewController.swift */; };
 		3842334D249DA51000E107DF /* Alegreya-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 3842334B249DA50B00E107DF /* Alegreya-Bold.otf */; };
 		3842334E249DA51300E107DF /* Alegreya-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 38423349249DA50B00E107DF /* Alegreya-Regular.otf */; };
 		3842334F249DA51900E107DF /* AlegreyaSC-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 3842334C249DA50B00E107DF /* AlegreyaSC-Bold.otf */; };
 		38423350249DA51D00E107DF /* AlegreyaSC-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 3842334A249DA50B00E107DF /* AlegreyaSC-Regular.otf */; };
+		38423352249DB1D000E107DF /* WunderlistTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38423351249DB1D000E107DF /* WunderlistTableViewController.swift */; };
+		38423354249DC60C00E107DF /* WunderlistLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38423353249DC60C00E107DF /* WunderlistLoginViewController.swift */; };
 		3AB1AD02249B030400334311 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AB1AD01249B030400334311 /* AppDelegate.swift */; };
 		3AB1AD04249B030400334311 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AB1AD03249B030400334311 /* SceneDelegate.swift */; };
 		3AB1AD09249B030400334311 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3AB1AD07249B030400334311 /* Main.storyboard */; };
@@ -27,11 +28,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		38423347249DA42400E107DF /* WunderListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WunderListViewController.swift; sourceTree = "<group>"; };
 		38423349249DA50B00E107DF /* Alegreya-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Alegreya-Regular.otf"; sourceTree = "<group>"; };
 		3842334A249DA50B00E107DF /* AlegreyaSC-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "AlegreyaSC-Regular.otf"; sourceTree = "<group>"; };
 		3842334B249DA50B00E107DF /* Alegreya-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Alegreya-Bold.otf"; sourceTree = "<group>"; };
 		3842334C249DA50B00E107DF /* AlegreyaSC-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "AlegreyaSC-Bold.otf"; sourceTree = "<group>"; };
+		38423351249DB1D000E107DF /* WunderlistTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = WunderlistTableViewController.swift; path = Wunderlist2.0/WunderlistTableViewController.swift; sourceTree = SOURCE_ROOT; };
+		38423353249DC60C00E107DF /* WunderlistLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WunderlistLoginViewController.swift; sourceTree = "<group>"; };
 		3AB1ACFE249B030400334311 /* Wunderlist2.0.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Wunderlist2.0.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3AB1AD01249B030400334311 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3AB1AD03249B030400334311 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -92,7 +94,6 @@
 				3AB1AD0A249B030500334311 /* Assets.xcassets */,
 				3AB1AD0C249B030500334311 /* LaunchScreen.storyboard */,
 				3AB1AD0F249B030500334311 /* Info.plist */,
-				38423347249DA42400E107DF /* WunderListViewController.swift */,
 			);
 			path = Wunderlist2.0;
 			sourceTree = "<group>";
@@ -100,6 +101,8 @@
 		3AB1AD15249C37B500334311 /* View Controller */ = {
 			isa = PBXGroup;
 			children = (
+				38423351249DB1D000E107DF /* WunderlistTableViewController.swift */,
+				38423353249DC60C00E107DF /* WunderlistLoginViewController.swift */,
 			);
 			path = "View Controller";
 			sourceTree = "<group>";
@@ -216,13 +219,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				3AB1AD02249B030400334311 /* AppDelegate.swift in Sources */,
-				38423348249DA42400E107DF /* WunderListViewController.swift in Sources */,
 				3AB1AD04249B030400334311 /* SceneDelegate.swift in Sources */,
 				3AB1AD1D249C386E00334311 /* ToDo+Convenience.swift in Sources */,
 				3AB1AD29249C5AD300334311 /* ToDoListRepresentation.swift in Sources */,
 				3AB1AD25249C55EB00334311 /* ToDoList+Convenience.swift in Sources */,
+				38423354249DC60C00E107DF /* WunderlistLoginViewController.swift in Sources */,
 				3AB1AD2B249C5B6900334311 /* ToDoItemController.swift in Sources */,
 				3AB1AD23249C523300334311 /* Wunderlist.xcdatamodeld in Sources */,
+				38423352249DB1D000E107DF /* WunderlistTableViewController.swift in Sources */,
 				3AB1AD20249C393000334311 /* CoreDataTask.swift in Sources */,
 				3AB1AD27249C5A5800334311 /* ToDoItemRepresentation.swift in Sources */,
 			);
