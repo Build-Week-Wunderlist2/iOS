@@ -52,7 +52,7 @@ class WunderlistLoginViewController: UIViewController {
                     !password.isEmpty {
                     let user = User(username: username, password: password)
                     if loginType == .signUp {
-                        apiController?.signUp(with: user, completion: { (result) in
+                        toDoItemController?.signUp(with: user, completion: { (result) in
                             do {
                                 let success = try result.get()
                                 if success {
@@ -72,7 +72,7 @@ class WunderlistLoginViewController: UIViewController {
                             }
                         })
                     } else {
-                        apiController?.signIn(with: user, completion: { (result) in
+                        toDoItemController?.signIn(with: user, completion: { (result) in
                             do {
                                 let success = try result.get()
                                 if success {
@@ -103,12 +103,10 @@ class WunderlistLoginViewController: UIViewController {
         @IBAction func signInTypeChanged(_ sender: UISegmentedControl) {
             if sender.selectedSegmentIndex == 0 {
                 loginType = .signUp
-                signInButton.setTitle("sign Up", for: .normal)
+                signUpButton.setTitle("sign Up", for: .normal)
             } else {
                 loginType = .signIn
-                signInButton.setTitle("Sign In", for: .normal)
+                signUpButton.setTitle("Sign In", for: .normal)
             }
         }
-    }
-    
 }
