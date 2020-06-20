@@ -7,9 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		38423348249DA42400E107DF /* WunderListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38423347249DA42400E107DF /* WunderListViewController.swift */; };
+		3842334D249DA51000E107DF /* Alegreya-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 3842334B249DA50B00E107DF /* Alegreya-Bold.otf */; };
+		3842334E249DA51300E107DF /* Alegreya-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 38423349249DA50B00E107DF /* Alegreya-Regular.otf */; };
+		3842334F249DA51900E107DF /* AlegreyaSC-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 3842334C249DA50B00E107DF /* AlegreyaSC-Bold.otf */; };
+		38423350249DA51D00E107DF /* AlegreyaSC-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 3842334A249DA50B00E107DF /* AlegreyaSC-Regular.otf */; };
 		3AB1AD02249B030400334311 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AB1AD01249B030400334311 /* AppDelegate.swift */; };
 		3AB1AD04249B030400334311 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AB1AD03249B030400334311 /* SceneDelegate.swift */; };
-		3AB1AD06249B030400334311 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AB1AD05249B030400334311 /* ViewController.swift */; };
 		3AB1AD09249B030400334311 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3AB1AD07249B030400334311 /* Main.storyboard */; };
 		3AB1AD0B249B030500334311 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3AB1AD0A249B030500334311 /* Assets.xcassets */; };
 		3AB1AD0E249B030500334311 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3AB1AD0C249B030500334311 /* LaunchScreen.storyboard */; };
@@ -23,10 +27,14 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		38423347249DA42400E107DF /* WunderListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WunderListViewController.swift; sourceTree = "<group>"; };
+		38423349249DA50B00E107DF /* Alegreya-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Alegreya-Regular.otf"; sourceTree = "<group>"; };
+		3842334A249DA50B00E107DF /* AlegreyaSC-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "AlegreyaSC-Regular.otf"; sourceTree = "<group>"; };
+		3842334B249DA50B00E107DF /* Alegreya-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Alegreya-Bold.otf"; sourceTree = "<group>"; };
+		3842334C249DA50B00E107DF /* AlegreyaSC-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "AlegreyaSC-Bold.otf"; sourceTree = "<group>"; };
 		3AB1ACFE249B030400334311 /* Wunderlist2.0.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Wunderlist2.0.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3AB1AD01249B030400334311 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3AB1AD03249B030400334311 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		3AB1AD05249B030400334311 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		3AB1AD08249B030400334311 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		3AB1AD0A249B030500334311 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3AB1AD0D249B030500334311 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -56,6 +64,10 @@
 			children = (
 				3AB1AD00249B030400334311 /* Wunderlist2.0 */,
 				3AB1ACFF249B030400334311 /* Products */,
+				3842334B249DA50B00E107DF /* Alegreya-Bold.otf */,
+				38423349249DA50B00E107DF /* Alegreya-Regular.otf */,
+				3842334C249DA50B00E107DF /* AlegreyaSC-Bold.otf */,
+				3842334A249DA50B00E107DF /* AlegreyaSC-Regular.otf */,
 			);
 			sourceTree = "<group>";
 		};
@@ -76,11 +88,11 @@
 				3AB1AD15249C37B500334311 /* View Controller */,
 				3AB1AD01249B030400334311 /* AppDelegate.swift */,
 				3AB1AD03249B030400334311 /* SceneDelegate.swift */,
-				3AB1AD05249B030400334311 /* ViewController.swift */,
 				3AB1AD07249B030400334311 /* Main.storyboard */,
 				3AB1AD0A249B030500334311 /* Assets.xcassets */,
 				3AB1AD0C249B030500334311 /* LaunchScreen.storyboard */,
 				3AB1AD0F249B030500334311 /* Info.plist */,
+				38423347249DA42400E107DF /* WunderListViewController.swift */,
 			);
 			path = Wunderlist2.0;
 			sourceTree = "<group>";
@@ -186,9 +198,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3842334D249DA51000E107DF /* Alegreya-Bold.otf in Resources */,
 				3AB1AD0E249B030500334311 /* LaunchScreen.storyboard in Resources */,
+				3842334F249DA51900E107DF /* AlegreyaSC-Bold.otf in Resources */,
 				3AB1AD0B249B030500334311 /* Assets.xcassets in Resources */,
+				3842334E249DA51300E107DF /* Alegreya-Regular.otf in Resources */,
 				3AB1AD09249B030400334311 /* Main.storyboard in Resources */,
+				38423350249DA51D00E107DF /* AlegreyaSC-Regular.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -199,8 +215,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3AB1AD06249B030400334311 /* ViewController.swift in Sources */,
 				3AB1AD02249B030400334311 /* AppDelegate.swift in Sources */,
+				38423348249DA42400E107DF /* WunderListViewController.swift in Sources */,
 				3AB1AD04249B030400334311 /* SceneDelegate.swift in Sources */,
 				3AB1AD1D249C386E00334311 /* ToDo+Convenience.swift in Sources */,
 				3AB1AD29249C5AD300334311 /* ToDoListRepresentation.swift in Sources */,
