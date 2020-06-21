@@ -26,7 +26,30 @@
 		3AB1AD27249C5A5800334311 /* ToDoItemRepresentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AB1AD26249C5A5800334311 /* ToDoItemRepresentation.swift */; };
 		3AB1AD29249C5AD300334311 /* ToDoListRepresentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AB1AD28249C5AD300334311 /* ToDoListRepresentation.swift */; };
 		3AB1AD2B249C5B6900334311 /* ToDoItemController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AB1AD2A249C5B6900334311 /* ToDoItemController.swift */; };
+		3AF634E8249DA6CF001C232E /* Wunderlist2_0UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AF634E7249DA6CF001C232E /* Wunderlist2_0UITests.swift */; };
+		3AF634F6249DA6E9001C232E /* Wunderlist2_0Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AF634F5249DA6E9001C232E /* Wunderlist2_0Tests.swift */; };
+		3AF634FE249DADE3001C232E /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AF634FD249DADE3001C232E /* LoginViewController.swift */; };
+		3AF63500249DAE3F001C232E /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AF634FF249DAE3F001C232E /* LoginController.swift */; };
+		3AF63502249DAECD001C232E /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AF63501249DAECD001C232E /* User.swift */; };
+		3AF63504249DAF2D001C232E /* Bearer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AF63503249DAF2D001C232E /* Bearer.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		3AF634EA249DA6CF001C232E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3AB1ACF6249B030400334311 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3AB1ACFD249B030400334311;
+			remoteInfo = Wunderlist2.0;
+		};
+		3AF634F8249DA6E9001C232E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3AB1ACF6249B030400334311 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3AB1ACFD249B030400334311;
+			remoteInfo = Wunderlist2.0;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		38423349249DA50B00E107DF /* Alegreya-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Alegreya-Regular.otf"; sourceTree = "<group>"; };
@@ -50,10 +73,34 @@
 		3AB1AD26249C5A5800334311 /* ToDoItemRepresentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoItemRepresentation.swift; sourceTree = "<group>"; };
 		3AB1AD28249C5AD300334311 /* ToDoListRepresentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoListRepresentation.swift; sourceTree = "<group>"; };
 		3AB1AD2A249C5B6900334311 /* ToDoItemController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoItemController.swift; sourceTree = "<group>"; };
+		3AF634E5249DA6CF001C232E /* Wunderlist2.0UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Wunderlist2.0UITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		3AF634E7249DA6CF001C232E /* Wunderlist2_0UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Wunderlist2_0UITests.swift; sourceTree = "<group>"; };
+		3AF634E9249DA6CF001C232E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3AF634F3249DA6E9001C232E /* Wunderlist2.0Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Wunderlist2.0Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		3AF634F5249DA6E9001C232E /* Wunderlist2_0Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Wunderlist2_0Tests.swift; sourceTree = "<group>"; };
+		3AF634F7249DA6E9001C232E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3AF634FD249DADE3001C232E /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		3AF634FF249DAE3F001C232E /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
+		3AF63501249DAECD001C232E /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		3AF63503249DAF2D001C232E /* Bearer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bearer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		3AB1ACFB249B030400334311 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3AF634E2249DA6CF001C232E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3AF634F0249DA6E9001C232E /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -67,6 +114,8 @@
 			isa = PBXGroup;
 			children = (
 				3AB1AD00249B030400334311 /* Wunderlist2.0 */,
+				3AF634E6249DA6CF001C232E /* Wunderlist2.0UITests */,
+				3AF634F4249DA6E9001C232E /* Wunderlist2.0Tests */,
 				3AB1ACFF249B030400334311 /* Products */,
 				3842334B249DA50B00E107DF /* Alegreya-Bold.otf */,
 				38423349249DA50B00E107DF /* Alegreya-Regular.otf */,
@@ -79,6 +128,8 @@
 			isa = PBXGroup;
 			children = (
 				3AB1ACFE249B030400334311 /* Wunderlist2.0.app */,
+				3AF634E5249DA6CF001C232E /* Wunderlist2.0UITests.xctest */,
+				3AF634F3249DA6E9001C232E /* Wunderlist2.0Tests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -103,8 +154,12 @@
 		3AB1AD15249C37B500334311 /* View Controller */ = {
 			isa = PBXGroup;
 			children = (
+
 				38423351249DB1D000E107DF /* WunderlistTableViewController.swift */,
 				38423353249DC60C00E107DF /* WunderlistLoginViewController.swift */,
+
+				3AF634FD249DADE3001C232E /* LoginViewController.swift */,
+
 			);
 			path = "View Controller";
 			sourceTree = "<group>";
@@ -121,6 +176,7 @@
 			isa = PBXGroup;
 			children = (
 				3AB1AD2A249C5B6900334311 /* ToDoItemController.swift */,
+				3AF634FF249DAE3F001C232E /* LoginController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -128,11 +184,13 @@
 		3AB1AD18249C37D700334311 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				3AB1AD1E249C391E00334311 /* CoreData */,
 				3AB1AD1C249C386E00334311 /* ToDo+Convenience.swift */,
 				3AB1AD24249C55EB00334311 /* ToDoList+Convenience.swift */,
 				3AB1AD26249C5A5800334311 /* ToDoItemRepresentation.swift */,
 				3AB1AD28249C5AD300334311 /* ToDoListRepresentation.swift */,
-				3AB1AD1E249C391E00334311 /* CoreData */,
+				3AF63501249DAECD001C232E /* User.swift */,
+				3AF63503249DAF2D001C232E /* Bearer.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -144,6 +202,24 @@
 				3AB1AD21249C523300334311 /* Wunderlist.xcdatamodeld */,
 			);
 			path = CoreData;
+			sourceTree = "<group>";
+		};
+		3AF634E6249DA6CF001C232E /* Wunderlist2.0UITests */ = {
+			isa = PBXGroup;
+			children = (
+				3AF634E7249DA6CF001C232E /* Wunderlist2_0UITests.swift */,
+				3AF634E9249DA6CF001C232E /* Info.plist */,
+			);
+			path = Wunderlist2.0UITests;
+			sourceTree = "<group>";
+		};
+		3AF634F4249DA6E9001C232E /* Wunderlist2.0Tests */ = {
+			isa = PBXGroup;
+			children = (
+				3AF634F5249DA6E9001C232E /* Wunderlist2_0Tests.swift */,
+				3AF634F7249DA6E9001C232E /* Info.plist */,
+			);
+			path = Wunderlist2.0Tests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -166,6 +242,42 @@
 			productReference = 3AB1ACFE249B030400334311 /* Wunderlist2.0.app */;
 			productType = "com.apple.product-type.application";
 		};
+		3AF634E4249DA6CF001C232E /* Wunderlist2.0UITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3AF634EE249DA6CF001C232E /* Build configuration list for PBXNativeTarget "Wunderlist2.0UITests" */;
+			buildPhases = (
+				3AF634E1249DA6CF001C232E /* Sources */,
+				3AF634E2249DA6CF001C232E /* Frameworks */,
+				3AF634E3249DA6CF001C232E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				3AF634EB249DA6CF001C232E /* PBXTargetDependency */,
+			);
+			name = Wunderlist2.0UITests;
+			productName = Wunderlist2.0UITests;
+			productReference = 3AF634E5249DA6CF001C232E /* Wunderlist2.0UITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+		3AF634F2249DA6E9001C232E /* Wunderlist2.0Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3AF634FA249DA6E9001C232E /* Build configuration list for PBXNativeTarget "Wunderlist2.0Tests" */;
+			buildPhases = (
+				3AF634EF249DA6E9001C232E /* Sources */,
+				3AF634F0249DA6E9001C232E /* Frameworks */,
+				3AF634F1249DA6E9001C232E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				3AF634F9249DA6E9001C232E /* PBXTargetDependency */,
+			);
+			name = Wunderlist2.0Tests;
+			productName = Wunderlist2.0Tests;
+			productReference = 3AF634F3249DA6E9001C232E /* Wunderlist2.0Tests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -178,6 +290,14 @@
 				TargetAttributes = {
 					3AB1ACFD249B030400334311 = {
 						CreatedOnToolsVersion = 11.5;
+					};
+					3AF634E4249DA6CF001C232E = {
+						CreatedOnToolsVersion = 11.5;
+						TestTargetID = 3AB1ACFD249B030400334311;
+					};
+					3AF634F2249DA6E9001C232E = {
+						CreatedOnToolsVersion = 11.5;
+						TestTargetID = 3AB1ACFD249B030400334311;
 					};
 				};
 			};
@@ -195,6 +315,8 @@
 			projectRoot = "";
 			targets = (
 				3AB1ACFD249B030400334311 /* Wunderlist2.0 */,
+				3AF634E4249DA6CF001C232E /* Wunderlist2.0UITests */,
+				3AF634F2249DA6E9001C232E /* Wunderlist2.0Tests */,
 			);
 		};
 /* End PBXProject section */
@@ -214,6 +336,20 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		3AF634E3249DA6CF001C232E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3AF634F1249DA6E9001C232E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -221,7 +357,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+
+				3AF63500249DAE3F001C232E /* LoginController.swift in Sources */,
 				3AB1AD02249B030400334311 /* AppDelegate.swift in Sources */,
+				3AF63504249DAF2D001C232E /* Bearer.swift in Sources */,
 				3AB1AD04249B030400334311 /* SceneDelegate.swift in Sources */,
 				3AB1AD1D249C386E00334311 /* ToDo+Convenience.swift in Sources */,
 				38423356249DD0CB00E107DF /* ToDoTableViewCell.swift in Sources */,
@@ -231,12 +370,44 @@
 				3AB1AD2B249C5B6900334311 /* ToDoItemController.swift in Sources */,
 				3AB1AD23249C523300334311 /* Wunderlist.xcdatamodeld in Sources */,
 				38423352249DB1D000E107DF /* WunderlistTableViewController.swift in Sources */,
+				3AF63502249DAECD001C232E /* User.swift in Sources */,
+
 				3AB1AD20249C393000334311 /* CoreDataTask.swift in Sources */,
+				3AF634FE249DADE3001C232E /* LoginViewController.swift in Sources */,
 				3AB1AD27249C5A5800334311 /* ToDoItemRepresentation.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		3AF634E1249DA6CF001C232E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3AF634E8249DA6CF001C232E /* Wunderlist2_0UITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3AF634EF249DA6E9001C232E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3AF634F6249DA6E9001C232E /* Wunderlist2_0Tests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		3AF634EB249DA6CF001C232E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3AB1ACFD249B030400334311 /* Wunderlist2.0 */;
+			targetProxy = 3AF634EA249DA6CF001C232E /* PBXContainerItemProxy */;
+		};
+		3AF634F9249DA6E9001C232E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3AB1ACFD249B030400334311 /* Wunderlist2.0 */;
+			targetProxy = 3AF634F8249DA6E9001C232E /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		3AB1AD07249B030400334311 /* Main.storyboard */ = {
@@ -408,6 +579,84 @@
 			};
 			name = Release;
 		};
+		3AF634EC249DA6CF001C232E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = MMSJ2DXRDG;
+				INFOPLIST_FILE = Wunderlist2.0UITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.thecoderpilot.Wunderlist2-0UITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Wunderlist2.0;
+			};
+			name = Debug;
+		};
+		3AF634ED249DA6CF001C232E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = MMSJ2DXRDG;
+				INFOPLIST_FILE = Wunderlist2.0UITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.thecoderpilot.Wunderlist2-0UITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Wunderlist2.0;
+			};
+			name = Release;
+		};
+		3AF634FB249DA6E9001C232E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = MMSJ2DXRDG;
+				INFOPLIST_FILE = Wunderlist2.0Tests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.thecoderpilot.Wunderlist2-0Tests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Wunderlist2.0.app/Wunderlist2.0";
+			};
+			name = Debug;
+		};
+		3AF634FC249DA6E9001C232E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = MMSJ2DXRDG;
+				INFOPLIST_FILE = Wunderlist2.0Tests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.thecoderpilot.Wunderlist2-0Tests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Wunderlist2.0.app/Wunderlist2.0";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -425,6 +674,24 @@
 			buildConfigurations = (
 				3AB1AD13249B030500334311 /* Debug */,
 				3AB1AD14249B030500334311 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3AF634EE249DA6CF001C232E /* Build configuration list for PBXNativeTarget "Wunderlist2.0UITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3AF634EC249DA6CF001C232E /* Debug */,
+				3AF634ED249DA6CF001C232E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3AF634FA249DA6E9001C232E /* Build configuration list for PBXNativeTarget "Wunderlist2.0Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3AF634FB249DA6E9001C232E /* Debug */,
+				3AF634FC249DA6E9001C232E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
