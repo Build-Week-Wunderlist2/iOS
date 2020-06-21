@@ -22,7 +22,7 @@ enum NetworkError: Error {
     case decodeFailed
 }
 
-class APIController {
+class LoginController {
     // MARK: - Public Properties
     var bearer: Bearer?
     
