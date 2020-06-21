@@ -10,7 +10,7 @@ import Foundation
 
 struct ToDoItemRepresentation: Codable {
     var complete: Bool
-    var identifier: UUID
+    var identifier: String
     var title: String
     var date: Date
     var toDoDescription: String

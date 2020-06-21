@@ -20,6 +20,8 @@ enum NetworkError: Error {
     case otherEror(Error)
     case noData
     case decodeFailed
+    case noIdentifier
+    case noRep
 }
 
 class LoginController {

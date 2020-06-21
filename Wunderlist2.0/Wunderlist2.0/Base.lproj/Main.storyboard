@@ -60,6 +60,9 @@
                                                 <constraint firstAttribute="width" constant="50" id="xb0-W1-PPq"/>
                                             </constraints>
                                             <state key="normal" image="plus" catalog="system"/>
+                                            <connections>
+                                                <segue destination="Owb-uB-zPg" kind="show" identifier="addNewToDo" id="pgx-97-vfI"/>
+                                            </connections>
                                         </button>
                                     </subviews>
                                 </stackView>
@@ -131,7 +134,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="nEc-xW-giO">
-                                <rect key="frame" x="20" y="119" width="374" height="272.5"/>
+                                <rect key="frame" x="20" y="163" width="374" height="272.5"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="ToDo Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FH1-kG-sff">
                                         <rect key="frame" x="0.0" y="0.0" width="374" height="34"/>
@@ -186,6 +189,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Poa-k9-Ve2"/>
                     </view>
+                    <navigationItem key="navigationItem" id="WVl-Y1-HIO"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gws-Dh-tiU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
