@@ -9,19 +9,44 @@
 import UIKit
 
 class ToDoTableViewCell: UITableViewCell {
+    //MARK: - IBOutlets
+    
     @IBOutlet weak var completeButton: UIButton!
     @IBOutlet weak var toDoTitleLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
+    
+    // MARK: - Properties
+    var toDoItem: ToDoItem? {
+        didSet {
+            updateViews()
+        }
     }
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    //MARK: - IBActions
+    
+    @IBAction func toggleComplete(_ sender: UIButton) {
+        toDoItem?.complete.toggle()
+        
+        guard let toDoItem = toDoItem else { return }
+        
+        completeButton.setImage((toDoItem.complete) ? UIImage(systemName: "checkmark.circle.fill") : UIImage(systemName: "circle"), for: .normal)
+        
+        do {
+            try CoreDataStack.shared.mainContext.save()
+        } catch {
+            NSLog("Error Saving managed object context: \(error)")
+        }
     }
-
+    
+    // MARK: - Functions
+    private func updateViews() {
+        guard let toDoItem = toDoItem else { return }
+        
+        toDoTitleLabel.text = toDoItem.title
+        completeButton.setImage((toDoItem.complete) ? UIImage(systemName: "checkmark.circle.fill") : UIImage(systemName: "circle"), for: .normal)
+        #warning("Fix this date properly")
+        dateLabel.text = "\(toDoItem.date)"
+    }
+    
 }

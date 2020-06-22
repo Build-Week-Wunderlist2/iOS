@@ -72,7 +72,7 @@
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="toDoItemCell" id="yAD-7D-osI" customClass="ToDoTableViewCell" customModule="Wunderlist2_0" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="86" width="414" height="43.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="yAD-7D-osI" id="MFl-8D-H3L">
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="yAD-7D-osI" id="MFl-8D-H3L" customClass="ToDoItemTableViewCell" customModule="Wunderlist2_0" customModuleProvider="target">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
@@ -91,6 +91,9 @@
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y86-Dy-2mj">
                                             <rect key="frame" x="8" y="11" width="74" height="22"/>
                                             <state key="normal" title="Button" image="checkmark.shield.fill" catalog="system"/>
+                                            <connections>
+                                                <action selector="toggleComplete:" destination="yAD-7D-osI" eventType="touchUpInside" id="YaN-qN-FfA"/>
+                                            </connections>
                                         </button>
                                     </subviews>
                                     <constraints>
@@ -103,7 +106,7 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="completeButton" destination="Y86-Dy-2mj" id="cZi-pa-Cho"/>
+                                    <outlet property="completeButton" destination="Y86-Dy-2mj" id="Ip0-3f-ydq"/>
                                     <outlet property="dateLabel" destination="ijR-1t-Tfb" id="fJt-l5-owi"/>
                                     <outlet property="toDoTitleLabel" destination="0vS-uG-e60" id="FOA-5X-Emh"/>
                                 </connections>
