@@ -22,6 +22,7 @@ class WunderlistLoginViewController: UIViewController, UITextFieldDelegate {
     
     var loginController: LoginController?
     var loginType = LoginType.signUp
+    var toDoItemController: ToDoItemController?
     
     
     override func viewDidLoad() {
@@ -67,7 +68,7 @@ class WunderlistLoginViewController: UIViewController, UITextFieldDelegate {
                         print("Error login in: \(error!)")
                         return
                     }
-                    
+                    self.toDoItemController?.bearer = loginController.bearer
                     DispatchQueue.main.async {
                         self.dismiss(animated: true, completion: nil)
                     }

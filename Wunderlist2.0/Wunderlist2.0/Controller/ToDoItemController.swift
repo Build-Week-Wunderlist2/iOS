@@ -10,6 +10,8 @@ import Foundation
 import CoreData
 
 class ToDoItemController {
+    var bearer: Bearer?
+    
     let baseURL = URL(string: "https://todolist1213.herokuapp.com/api")!
     
     typealias CompletionHandler = (Result<Bool, NetworkError>) -> Void
@@ -60,7 +62,7 @@ class ToDoItemController {
     }
     
     func fetchToDoItemsFromServer(completion: @escaping CompletionHandler = { _ in }) {
-        
+        let queryURL = baseURL.appendingPathComponent("/user/\(bearer?.userID)/task")
         let requestURL = baseURL.appendingPathExtension("json")
         
         URLSession.shared.dataTask(with: requestURL) { (data, _, error) in
@@ -81,6 +83,7 @@ class ToDoItemController {
                 return
             }
             
+            print(data)
             // Pull the JSON out of the data, and turn it into [TaskRepresentation]
             do {
                 let toDoItemRepresentations = try JSONDecoder().decode([String: ToDoItemRepresentation].self, from: data).map({ $0.value })
