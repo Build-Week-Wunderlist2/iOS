@@ -9,10 +9,17 @@
 import Foundation
 
 struct ToDoListRepresentation: Codable {
-    var complete: Bool
-    var identifier: UUID
+    var complete: Bool?
+    var id: Int16
     var title: String
+    var userID: Int16
     var date: Date
+    
+    enum CodingKeys: String, CodingKey {
+        case complete
+        case id
+        case title
+        case userID = "user_id"
+        case date
+    }
 }
-
-// Will need to do coding keys to match the actual data from the backend

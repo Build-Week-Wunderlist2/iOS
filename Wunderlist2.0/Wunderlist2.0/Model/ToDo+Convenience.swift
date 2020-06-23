@@ -10,11 +10,17 @@ import Foundation
 import CoreData
 
 extension ToDoItem {
-    @discardableResult convenience init(id: UUID = UUID(),
+    #warning("Do I have to mark them as optional here as well or just in the representation file")
+    @discardableResult convenience init(id: Int16,
                                         title: String,
                                         date: Date,
-                                        complete: Bool,
+                                        complete: Bool = false,
                                         toDoDescription: String,
+                                        toDoID: Int16,
+                                        deadline: Date,
+                                        repeatsDaily: Bool = false,
+                                        repeatsWeekly: Bool = false,
+                                        repeatsMonthly: Bool = false,
                                         context: NSManagedObjectContext = CoreDataStack.shared.mainContext) {
         self.init(context: context)
         self.id = id
@@ -22,31 +28,47 @@ extension ToDoItem {
         self.date = date
         self.complete = complete
         self.toDoDescription = toDoDescription
+        self.toDoID = toDoID
+        self.deadline = deadline
+        self.repeatsDaily = repeatsDaily
+        self.repeatsWeekly = repeatsWeekly
+        self.repeatsMonthly = repeatsMonthly
     }
     
     @discardableResult convenience init?(toDoItemRepresentation: ToDoItemRepresentation,
                                          context: NSManagedObjectContext = CoreDataStack.shared.mainContext) {
-        guard let id = UUID(uuidString: toDoItemRepresentation.identifier) else { return nil}
+        guard let complete = toDoItemRepresentation.complete,
+            let deadline = toDoItemRepresentation.deadline,
+            let repeatsDaily = toDoItemRepresentation.repeatsDaily,
+            let repeatsWeekly = toDoItemRepresentation.repeatsWeekly,
+            let repeatsMonthly = toDoItemRepresentation.repeatsMonthly else { return nil }
         
-        self.init(id: id,
+        self.init(id: toDoItemRepresentation.id,
                   title: toDoItemRepresentation.title,
                   date: toDoItemRepresentation.date,
-                  complete: toDoItemRepresentation.complete,
+                  complete: complete,
                   toDoDescription: toDoItemRepresentation.toDoDescription,
-                  context: context)
+                  toDoID: toDoItemRepresentation.toDoID,
+                  deadline: deadline,
+                  repeatsDaily: repeatsDaily,
+                  repeatsWeekly: repeatsWeekly,
+                  repeatsMonthly: repeatsMonthly)
     }
     
     var toDoItemRepresentation: ToDoItemRepresentation? {
         guard let title = title,
-        let date = date,
-        let toDoDescription = toDoDescription else { return nil }
-        
-        let identifier = id ?? UUID()
+            let date = date,
+            let toDoDescription = toDoDescription else { return nil }
         
         return ToDoItemRepresentation(complete: complete,
-                                      identifier: identifier.uuidString,
+                                      id: id,
                                       title: title,
                                       date: date,
-                                      toDoDescription: toDoDescription)
+                                      toDoDescription: toDoDescription,
+                                      toDoID: toDoID,
+                                      deadline: deadline,
+                                      repeatsDaily: repeatsDaily,
+                                      repeatsWeekly: repeatsWeekly,
+                                      repeatsMonthly: repeatsMonthly)
     }
 }
