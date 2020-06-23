@@ -20,9 +20,11 @@ enum NetworkError: Error {
     case otherEror(Error)
     case noData
     case decodeFailed
+    case noIdentifier
+    case noRep
 }
 
-class APIController {
+class LoginController {
     // MARK: - Public Properties
     var bearer: Bearer?
     
