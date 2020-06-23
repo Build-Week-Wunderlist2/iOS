@@ -3,19 +3,25 @@
     <entity name="ToDoItem" representedClassName="ToDoItem" syncable="YES" codeGenerationType="class">
         <attribute name="complete" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
         <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
-        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="deadline" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="id" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="repeatsDaily" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="repeatsMonthly" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="repeatsWeekly" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
         <attribute name="title" optional="YES" attributeType="String"/>
         <attribute name="toDoDescription" optional="YES" attributeType="String"/>
+        <attribute name="toDoID" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
     </entity>
     <entity name="ToDoList" representedClassName="ToDoList" syncable="YES" codeGenerationType="class">
         <attribute name="complete" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
         <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
-        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="id" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="title" optional="YES" attributeType="String"/>
+        <attribute name="userID" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <relationship name="item" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ToDoItem"/>
     </entity>
     <elements>
-        <element name="ToDoItem" positionX="-36" positionY="9" width="128" height="118"/>
-        <element name="ToDoList" positionX="0" positionY="45" width="128" height="118"/>
+        <element name="ToDoItem" positionX="-36" positionY="9" width="128" height="193"/>
+        <element name="ToDoList" positionX="0" positionY="45" width="128" height="133"/>
     </elements>
 </model>
