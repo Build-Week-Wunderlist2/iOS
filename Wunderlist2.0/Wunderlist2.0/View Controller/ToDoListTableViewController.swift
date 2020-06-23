@@ -7,20 +7,39 @@
 //
 
 import UIKit
+import CoreData
 
 class ToDoListTableViewController: UITableViewController, UITextFieldDelegate {
-
+    
     // MARK: - Properties
     private let loginController = LoginController()
     private let toDoItemController = ToDoItemController()
     
     var newListName: UITextField?
-    var ToDoLists: [ToDoList] = [] {
+    var toDoLists: [ToDoList] = [] {
         didSet {
-        tableView.reloadData()
+            tableView.reloadData()
         }
     }
     var bearer: Bearer?
+    
+    lazy var fetchedResultsController: NSFetchedResultsController<ToDoList> = {
+        let fetchRequest: NSFetchRequest<ToDoList> = ToDoList.fetchRequest()
+        
+        fetchRequest.sortDescriptors = [
+            NSSortDescriptor(key: "title", ascending: true)
+        ]
+        // Create a constant that references your core data stack's mainContext.
+        let fetchRequestController = NSFetchedResultsController(fetchRequest: fetchRequest,
+                                                                managedObjectContext: CoreDataStack.shared.mainContext,
+                                                                sectionNameKeyPath: "title",
+                                                                cacheName: nil)
+        
+        fetchRequestController.delegate = self
+        // Perform the fetch request using the fetched results controller
+        try! fetchRequestController.performFetch()
+        return fetchRequestController
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,7 +55,7 @@ class ToDoListTableViewController: UITableViewController, UITextFieldDelegate {
             performSegue(withIdentifier: "LoginViewModalSegue", sender: self)
         }
     }
-
+    
     // MARK: - IBAction
     @IBAction func addNewToDoList(_ sender: Any) {
         addNewList()
@@ -44,62 +63,42 @@ class ToDoListTableViewController: UITableViewController, UITextFieldDelegate {
     
     
     // MARK: - Table view data source
-
+    
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 1
+        return fetchedResultsController.sections?.count ?? 1
     }
-
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return ToDoLists.count
+        return fetchedResultsController.sections?[section].numberOfObjects ?? 0
     }
-
-
+    
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: ToDoListTableViewCell.reuseIdentifier, for: indexPath) as? ToDoListTableViewCell else { return UITableViewCell() }
-
-        cell.toDoList = ToDoLists[indexPath.row]
+        cell.toDoList = fetchedResultsController.object(at: indexPath)
         return cell
     }
     
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
-    /*
     // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
+            let list = fetchedResultsController.object(at: indexPath)
+            
+            //ToDoListController.deleteEntryFromServer(entry: entry)
+            
+            let context = CoreDataStack.shared.mainContext
+            
+            context.delete(list)
+            
+            do {
+                try context.save()
+            } catch {
+                NSLog("Error saving context after deleting Task: \(error)")
+                context.reset()
+            }
+        }
     }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
     
-  // MARK: - Navigation
+    // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "LoginViewModalSegue",
             let loginVC = segue.destination as? WunderlistLoginViewController {
@@ -109,14 +108,21 @@ class ToDoListTableViewController: UITableViewController, UITextFieldDelegate {
     
     // MARK: - Functions
     func addNewList() {
-                bearer = loginController.bearer
+        bearer = loginController.bearer
         let dialogMessage = UIAlertController(title: "NewList", message: "Enter your new list name", preferredStyle: .alert)
         let ok = UIAlertAction(title: "OK", style: .default) { (action) in
             guard let bearer = self.bearer else { return }
             
             if let userInput = self.newListName!.text {
-                let newList = ToDoList(id: nil, title: userInput, userID: Int16(bearer.userID), date: Date(), complete: false)
-                self.ToDoLists.append(newList)
+                let newList = ToDoList(id: nil, title: userInput, userID: Int16(bearer.userID), date: Date(), complete: false, context: CoreDataStack.shared.mainContext)
+                //self.toDoLists.append(newList)
+                #warning("Need to send to backend")
+                
+                do {
+                    try CoreDataStack.shared.mainContext.save()
+                } catch {
+                    NSLog("Error saving manage object context: \(error)")
+                }
             }
         }
         
@@ -132,7 +138,53 @@ class ToDoListTableViewController: UITableViewController, UITextFieldDelegate {
         }
         self.present(dialogMessage, animated: true, completion: nil)
         tableView.reloadData()
-        print(ToDoLists)
     }
+    
+}
 
+// MARK: - Extension
+extension ToDoListTableViewController: NSFetchedResultsControllerDelegate {
+    func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+        tableView.beginUpdates()
+    }
+    func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+        tableView.endUpdates()
+    }
+    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>,
+                    didChange sectionInfo: NSFetchedResultsSectionInfo,
+                    atSectionIndex sectionIndex: Int,
+                    for type: NSFetchedResultsChangeType) {
+        switch type {
+        case .insert:
+            tableView.insertSections(IndexSet(integer: sectionIndex), with: .automatic)
+        case .delete:
+            tableView.deleteSections(IndexSet(integer: sectionIndex), with: .automatic)
+        default:
+            break
+        }
+    }
+    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>,
+                    didChange anObject: Any,
+                    at indexPath: IndexPath?,
+                    for type: NSFetchedResultsChangeType,
+                    newIndexPath: IndexPath?) {
+        switch type {
+        case .insert:
+            guard let newIndexPath = newIndexPath else { return }
+            tableView.insertRows(at: [newIndexPath], with: .automatic)
+        case .update:
+            guard let indexPath = indexPath else { return }
+            tableView.reloadRows(at: [indexPath], with: .automatic)
+        case .move:
+            guard let oldIndexPath = indexPath,
+            let newIndexPath = newIndexPath else { return }
+            tableView.deleteRows(at: [oldIndexPath], with: .automatic)
+            tableView.insertRows(at: [newIndexPath], with: .automatic)
+        case .delete:
+            guard let indexPath = indexPath else { return }
+            tableView.deleteRows(at: [indexPath], with: .automatic)
+        @unknown default:
+            break
+        }
+    }
 }
