@@ -10,7 +10,7 @@ import Foundation
 
 struct ToDoListRepresentation: Codable {
     var complete: Bool?
-    var id: Int16
+    var id: Int16?
     var title: String
     var userID: Int16
     var date: Date

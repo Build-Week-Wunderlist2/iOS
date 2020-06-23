@@ -43,7 +43,7 @@ extension ToDoItem {
             let repeatsWeekly = toDoItemRepresentation.repeatsWeekly,
             let repeatsMonthly = toDoItemRepresentation.repeatsMonthly else { return nil }
         
-        self.init(id: toDoItemRepresentation.id,
+        self.init(id: toDoItemRepresentation.id ?? 1,
                   title: toDoItemRepresentation.title,
                   date: toDoItemRepresentation.date,
                   complete: complete,

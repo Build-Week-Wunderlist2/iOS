@@ -10,14 +10,14 @@ import Foundation
 import CoreData
 
 extension ToDoList {
-    @discardableResult convenience init(id: Int16,
+    @discardableResult convenience init(id: Int16?,
                                         title: String,
                                         userID: Int16,
                                         date: Date,
                                         complete: Bool,
                                         context: NSManagedObjectContext = CoreDataStack.shared.mainContext) {
         self.init(context: context)
-        self.id = id
+        self.id = id ?? 1
         self.title = title
         self.userID = userID
         self.date = date

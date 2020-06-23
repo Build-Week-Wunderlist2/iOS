@@ -8,20 +8,38 @@
 
 import UIKit
 
-class ToDoListTableViewController: UITableViewController {
+class ToDoListTableViewController: UITableViewController, UITextFieldDelegate {
 
+    // MARK: - Properties
+    private let loginController = LoginController()
+    private let toDoItemController = ToDoItemController()
+    
+    var newListName: UITextField?
+    var ToDoLists: [ToDoList] = [] {
+        didSet {
+        tableView.reloadData()
+        }
+    }
+    var bearer: Bearer?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        tableView.reloadData()
+    }
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        if loginController.bearer == nil {
+            performSegue(withIdentifier: "LoginViewModalSegue", sender: self)
+        }
     }
 
     // MARK: - IBAction
     @IBAction func addNewToDoList(_ sender: Any) {
+        addNewList()
     }
     
     
@@ -29,23 +47,21 @@ class ToDoListTableViewController: UITableViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+        return ToDoLists.count
     }
 
-    /*
+
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: ToDoListTableViewCell.reuseIdentifier, for: indexPath) as? ToDoListTableViewCell else { return UITableViewCell() }
 
-        // Configure the cell...
-
+        cell.toDoList = ToDoLists[indexPath.row]
         return cell
     }
-    */
+    
 
     /*
     // Override to support conditional editing of the table view.
@@ -82,14 +98,41 @@ class ToDoListTableViewController: UITableViewController {
     }
     */
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    
+  // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        if segue.identifier == "LoginViewModalSegue",
+            let loginVC = segue.destination as? WunderlistLoginViewController {
+            loginVC.loginController = loginController
+        }
     }
-    */
+    
+    // MARK: - Functions
+    func addNewList() {
+                bearer = loginController.bearer
+        let dialogMessage = UIAlertController(title: "NewList", message: "Enter your new list name", preferredStyle: .alert)
+        let ok = UIAlertAction(title: "OK", style: .default) { (action) in
+            guard let bearer = self.bearer else { return }
+            
+            if let userInput = self.newListName!.text {
+                let newList = ToDoList(id: nil, title: userInput, userID: Int16(bearer.userID), date: Date(), complete: false)
+                self.ToDoLists.append(newList)
+            }
+        }
+        
+        let cancel = UIAlertAction(title: "Cancel", style: .cancel) { (action) in
+        }
+        
+        dialogMessage.addAction(ok)
+        dialogMessage.addAction(cancel)
+        
+        dialogMessage.addTextField { (textfield) in
+            self.newListName = textfield
+            self.newListName?.placeholder = "Type your list name"
+        }
+        self.present(dialogMessage, animated: true, completion: nil)
+        tableView.reloadData()
+        print(ToDoLists)
+    }
 
 }

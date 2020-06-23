@@ -33,10 +33,6 @@ class WunderlistTableViewController: UITableViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super .viewDidAppear(animated)
-        
-        if loginController.bearer == nil {
-            performSegue(withIdentifier: "LoginViewModalSegue", sender: self)
-        }
     }
     
     // MARK: - Table view data source
@@ -77,13 +73,7 @@ class WunderlistTableViewController: UITableViewController {
             }
         }
     }
-    // MARK: - Navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "LoginViewModalSegue",
-            let loginVC = segue.destination as? WunderlistLoginViewController {
-            loginVC.loginController = loginController
-        }
-    }
+    
     
 }
 

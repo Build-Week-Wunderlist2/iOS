@@ -10,7 +10,7 @@ import Foundation
 
 struct ToDoItemRepresentation: Codable {
     var complete: Bool?
-    var id: Int16
+    var id: Int16?
     var title: String
     var date: Date
     var toDoDescription: String
