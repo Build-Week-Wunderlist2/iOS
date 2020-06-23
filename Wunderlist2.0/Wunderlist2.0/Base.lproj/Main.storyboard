@@ -103,6 +103,7 @@
                                     <outlet property="completeButton" destination="Y86-Dy-2mj" id="cZi-pa-Cho"/>
                                     <outlet property="dateLabel" destination="ijR-1t-Tfb" id="fJt-l5-owi"/>
                                     <outlet property="toDoTitleLabel" destination="0vS-uG-e60" id="FOA-5X-Emh"/>
+                                    <segue destination="Owb-uB-zPg" kind="show" identifier="ToDoDetail" id="ak9-ED-BQV"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -186,6 +187,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Poa-k9-Ve2"/>
                     </view>
+                    <navigationItem key="navigationItem" id="O6R-tc-He6"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gws-Dh-tiU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
