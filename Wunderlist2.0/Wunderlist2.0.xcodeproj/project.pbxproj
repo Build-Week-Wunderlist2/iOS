@@ -11,9 +11,9 @@
 		3842334E249DA51300E107DF /* Alegreya-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 38423349249DA50B00E107DF /* Alegreya-Regular.otf */; };
 		3842334F249DA51900E107DF /* AlegreyaSC-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 3842334C249DA50B00E107DF /* AlegreyaSC-Bold.otf */; };
 		38423350249DA51D00E107DF /* AlegreyaSC-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 3842334A249DA50B00E107DF /* AlegreyaSC-Regular.otf */; };
-		38423352249DB1D000E107DF /* WunderlistTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38423351249DB1D000E107DF /* WunderlistTableViewController.swift */; };
 		38423354249DC60C00E107DF /* WunderlistLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38423353249DC60C00E107DF /* WunderlistLoginViewController.swift */; };
 		38423356249DD0CB00E107DF /* ToDoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38423355249DD0CB00E107DF /* ToDoTableViewCell.swift */; };
+		3842335824A2D97000E107DF /* ToDoListDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3842335724A2D97000E107DF /* ToDoListDetailViewController.swift */; };
 		3AB1AD02249B030400334311 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AB1AD01249B030400334311 /* AppDelegate.swift */; };
 		3AB1AD04249B030400334311 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AB1AD03249B030400334311 /* SceneDelegate.swift */; };
 		3AB1AD09249B030400334311 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3AB1AD07249B030400334311 /* Main.storyboard */; };
@@ -57,9 +57,9 @@
 		3842334A249DA50B00E107DF /* AlegreyaSC-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "AlegreyaSC-Regular.otf"; sourceTree = "<group>"; };
 		3842334B249DA50B00E107DF /* Alegreya-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Alegreya-Bold.otf"; sourceTree = "<group>"; };
 		3842334C249DA50B00E107DF /* AlegreyaSC-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "AlegreyaSC-Bold.otf"; sourceTree = "<group>"; };
-		38423351249DB1D000E107DF /* WunderlistTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = WunderlistTableViewController.swift; path = Wunderlist2.0/WunderlistTableViewController.swift; sourceTree = SOURCE_ROOT; };
 		38423353249DC60C00E107DF /* WunderlistLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WunderlistLoginViewController.swift; sourceTree = "<group>"; };
 		38423355249DD0CB00E107DF /* ToDoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ToDoTableViewCell.swift; path = "Wunderlist2.0/View Controller/ToDoTableViewCell.swift"; sourceTree = SOURCE_ROOT; };
+		3842335724A2D97000E107DF /* ToDoListDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoListDetailViewController.swift; sourceTree = "<group>"; };
 		3AB1ACFE249B030400334311 /* Wunderlist2.0.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Wunderlist2.0.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3AB1AD01249B030400334311 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3AB1AD03249B030400334311 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -156,9 +156,9 @@
 		3AB1AD15249C37B500334311 /* View Controller */ = {
 			isa = PBXGroup;
 			children = (
-				38423351249DB1D000E107DF /* WunderlistTableViewController.swift */,
 				38423353249DC60C00E107DF /* WunderlistLoginViewController.swift */,
 				3AE1BC2124A19C6D00FB653A /* ToDoListTableViewController.swift */,
+				3842335724A2D97000E107DF /* ToDoListDetailViewController.swift */,
 			);
 			path = "View Controller";
 			sourceTree = "<group>";
@@ -369,7 +369,7 @@
 				3AB1AD2B249C5B6900334311 /* ToDoItemController.swift in Sources */,
 				3AB1AD23249C523300334311 /* Wunderlist.xcdatamodeld in Sources */,
 				3AE1BC2024A19B3600FB653A /* ToDoListTableViewCell.swift in Sources */,
-				38423352249DB1D000E107DF /* WunderlistTableViewController.swift in Sources */,
+				3842335824A2D97000E107DF /* ToDoListDetailViewController.swift in Sources */,
 				3AF63502249DAECD001C232E /* User.swift in Sources */,
 				3AE1BC2224A19C6D00FB653A /* ToDoListTableViewController.swift in Sources */,
 				3AB1AD20249C393000334311 /* CoreDataTask.swift in Sources */,

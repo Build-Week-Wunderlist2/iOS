@@ -106,7 +106,7 @@
                             <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" spacing="18" translatesAutoresizingMaskIntoConstraints="NO" id="m6T-vX-aLD">
                                 <rect key="frame" x="104" y="290" width="224" height="246"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Wunderlist 2.0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="giG-TO-VpN">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Wunderlist 2.0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="giG-TO-VpN">
                                         <rect key="frame" x="0.0" y="0.0" width="224" height="47"/>
                                         <fontDescription key="fontDescription" name="AlegreyaSC-Bold" family="Alegreya SC" pointSize="32"/>
                                         <nil key="textColor"/>
@@ -127,12 +127,12 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="beA-TK-rxU">
                                         <rect key="frame" x="0.0" y="114" width="224" height="132"/>
                                         <subviews>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Rmu-Q4-xzC">
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Email or Username" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Rmu-Q4-xzC">
                                                 <rect key="frame" x="0.0" y="0.0" width="224" height="34"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="UdO-dX-YIn">
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Password" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="UdO-dX-YIn">
                                                 <rect key="frame" x="0.0" y="46" width="224" height="34"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
@@ -184,7 +184,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <stackView key="tableHeaderView" opaque="NO" contentMode="scaleToFill" axis="vertical" id="EWf-60-gsO" userLabel="Choices Stack View">
-                            <rect key="frame" x="0.0" y="0.0" width="414" height="58"/>
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="75"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <stackView opaque="NO" contentMode="scaleToFill" spacing="125" translatesAutoresizingMaskIntoConstraints="NO" id="zkB-ft-JyH">
@@ -205,20 +205,21 @@
                                     </subviews>
                                 </stackView>
                                 <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="MAN-Zg-feP">
-                                    <rect key="frame" x="0.0" y="23.5" width="414" height="34.5"/>
+                                    <rect key="frame" x="0.0" y="23.5" width="414" height="22"/>
                                     <subviews>
                                         <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="ckb-uG-192">
-                                            <rect key="frame" x="0.0" y="0.0" width="284" height="35.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="284" height="23"/>
                                             <segments>
                                                 <segment title="A to Z"/>
                                                 <segment title="Date"/>
                                             </segments>
                                         </segmentedControl>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k7s-QR-6tA">
-                                            <rect key="frame" x="334" y="0.0" width="80" height="34.5"/>
+                                            <rect key="frame" x="334" y="0.0" width="80" height="22"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="80" id="xb0-W1-PPq"/>
                                             </constraints>
+                                            <color key="tintColor" red="0.25098039215686274" green="0.33725490196078434" blue="0.63137254901960782" alpha="0.84705882352941175" colorSpace="calibratedRGB"/>
                                             <state key="normal" image="plus" catalog="system"/>
                                             <connections>
                                                 <action selector="addNewToDoList:" destination="m48-2z-0rN" eventType="touchUpInside" id="iXd-J3-V5W"/>
@@ -227,11 +228,21 @@
                                         </button>
                                     </subviews>
                                 </stackView>
+                                <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="6FJ-KZ-aTm">
+                                    <rect key="frame" x="0.0" y="46" width="414" height="29"/>
+                                    <color key="backgroundColor" red="0.93725490199999995" green="0.8862745098" blue="0.72941176470000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="tintColor" red="0.7725490196" green="0.79607843140000001" blue="0.89019607840000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <textInputTraits key="textInputTraits"/>
+                                </searchBar>
                             </subviews>
+                            <constraints>
+                                <constraint firstAttribute="trailing" secondItem="6FJ-KZ-aTm" secondAttribute="trailing" id="Ldk-Km-1nT"/>
+                                <constraint firstItem="6FJ-KZ-aTm" firstAttribute="leading" secondItem="EWf-60-gsO" secondAttribute="leading" id="PYe-kB-pW6"/>
+                            </constraints>
                         </stackView>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="toDoListCell" id="vUr-TN-RWb" customClass="ToDoListTableViewCell" customModule="Wunderlist2_0" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="86" width="414" height="46"/>
+                                <rect key="frame" x="0.0" y="103" width="414" height="46"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="vUr-TN-RWb" id="WCz-Jx-7Qn">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="46"/>
@@ -289,6 +300,8 @@
                     </tableView>
                     <navigationItem key="navigationItem" id="gLj-Pg-sZC"/>
                     <connections>
+                        <outlet property="searchBar" destination="6FJ-KZ-aTm" id="NpW-py-vH3"/>
+                        <outlet property="segmentedControl" destination="ckb-uG-192" id="Bgl-hY-XbN"/>
                         <segue destination="BYZ-38-t0r" kind="presentation" identifier="LoginViewModalSegue" id="izX-MT-TUy"/>
                     </connections>
                 </tableViewController>
