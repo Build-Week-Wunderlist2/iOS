@@ -27,7 +27,7 @@
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="toDoItemCell" id="yAD-7D-osI" customClass="ToDoTableViewCell" customModule="Wunderlist2_0" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="yAD-7D-osI" id="MFl-8D-H3L" customClass="ToDoItemTableViewCell" customModule="Wunderlist2_0" customModuleProvider="target">
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="yAD-7D-osI" id="MFl-8D-H3L">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
@@ -87,10 +87,10 @@
             </objects>
             <point key="canvasLocation" x="2527.536231884058" y="156.69642857142856"/>
         </scene>
-        <!--View Controller-->
+        <!--Create New To Do Item View Controller-->
         <scene sceneID="aYI-Xe-sNG">
             <objects>
-                <viewController id="Owb-uB-zPg" sceneMemberID="viewController">
+                <viewController id="Owb-uB-zPg" customClass="CreateNewToDoItemViewController" customModule="Wunderlist2_0" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="iK8-mP-AGv">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -119,6 +119,9 @@
                                                     <constraint firstAttribute="width" constant="30" id="XSa-ar-cbZ"/>
                                                 </constraints>
                                                 <state key="normal" title="Button" image="circle" catalog="system"/>
+                                                <connections>
+                                                    <action selector="completeButtonToggled:" destination="Owb-uB-zPg" eventType="touchUpInside" id="hc8-BC-Obw"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
@@ -171,7 +174,19 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Poa-k9-Ve2"/>
                     </view>
-                    <navigationItem key="navigationItem" id="WVl-Y1-HIO"/>
+                    <navigationItem key="navigationItem" id="WVl-Y1-HIO">
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="Za2-cU-S7x">
+                            <connections>
+                                <action selector="saveButtonTapped:" destination="Owb-uB-zPg" id="K5U-76-Vfn"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="completeButton" destination="pXQ-EP-B0g" id="eCW-oy-VQX"/>
+                        <outlet property="nameTextField" destination="FH1-kG-sff" id="zF8-Q9-11g"/>
+                        <outlet property="repeatsSegmentedControl" destination="pFL-mQ-wuT" id="Owa-Kn-bwv"/>
+                        <outlet property="toDoDescriptionTextView" destination="EwH-Rl-cIa" id="2ip-nn-wjZ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gws-Dh-tiU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

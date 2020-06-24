@@ -28,7 +28,6 @@ class WunderlistTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        toDoItemController.fetchToDoItemsFromServer()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -61,7 +60,7 @@ class WunderlistTableViewController: UITableViewController {
         if editingStyle == .delete {
             let toDoToDelete = fetchedResultsController.object(at: indexPath)
             
-            toDoItemController.deleteToDoItemFromServer(toDoToDelete)
+            //toDoItemController.deleteToDoItemFromServer(toDoToDelete)
             
             let moc = CoreDataStack.shared.mainContext
             moc.delete(toDoToDelete)

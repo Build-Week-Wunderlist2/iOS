@@ -6,11 +6,17 @@
 //  Copyright © 2020 thecoderpilot. All rights reserved.
 //
 
+enum RepeatSelection: String, CaseIterable {
+    case none
+    case daily
+    case weekly
+    case monthly
+}
+
 import Foundation
 import CoreData
 
 extension ToDoItem {
-    #warning("Do I have to mark them as optional here as well or just in the representation file")
     @discardableResult convenience init(id: Int16,
                                         title: String,
                                         date: Date,
