@@ -11,19 +11,22 @@ import CoreData
 
 class ToDoListController {
     
-    var bearer: Bearer?
+   // var bearer: Bearer?
     
     let baseURL = URL(string: "https://todolist1213.herokuapp.com/api")!
     
     typealias CompletionHandler = (Result<Bool, NetworkError>) -> Void
     
-    func put(toDoList: ToDoList, completion: @escaping CompletionHandler = { _ in }) {
-        guard let bearer = bearer else { return }
+    func put(toDoList: ToDoList, bearer: Bearer, completion: @escaping CompletionHandler = { _ in }) {
+       // guard let bearer = bearer else { return }
         let queryURL = baseURL.appendingPathComponent("/user/todos")
-        let requestURL = queryURL.appendingPathExtension("json")
+       let requestURL = queryURL.appendingPathExtension("json")
         
-        var request = URLRequest(url: requestURL)
+        var request = URLRequest(url: queryURL)
         request.httpMethod = "POST"
+        print("user data")
+        print (bearer.token)
+        print(bearer.userID)
         request.addValue("\(bearer.token)", forHTTPHeaderField: "Authorization")
         
         do {
@@ -40,7 +43,7 @@ class ToDoListController {
             return
         }
         
-        URLSession.shared.dataTask(with: request) { (data, _, error) in
+        URLSession.shared.dataTask(with: request) { (data, response, error) in
             
             if let error = error {
                 NSLog("Error POSTting task to server: \(error)")
@@ -49,6 +52,16 @@ class ToDoListController {
                 }
                 return
             }
+            print(response!)
+            
+            guard let data = data  else { return }
+            let jsonDecoder = JSONDecoder()
+            do {
+                let dataResults = try jsonDecoder.decode(ToDoListRepresentation.self, from: data)
+                print(dataResults)
+            } catch {
+                
+            }
             
             DispatchQueue.main.async {
                 completion(.success(true))
@@ -56,8 +69,8 @@ class ToDoListController {
         }.resume()
     }
     
-    func fetchToDoListFromServer(completion: @escaping CompletionHandler = { _ in }) {
-        guard let bearer = bearer else { return }
+    func fetchToDoListFromServer(bearer: Bearer, completion: @escaping CompletionHandler = { _ in }) {
+        //guard let bearer = bearer else { return }
         
         let queryURL = baseURL.appendingPathComponent("/user/\(bearer.userID)/task")
         let requestURL = queryURL.appendingPathExtension("json")

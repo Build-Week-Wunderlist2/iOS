@@ -45,8 +45,8 @@ class ToDoListTableViewController: UITableViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         #warning("get items from server somehow")
-        if bearer != nil {
-            toDoListController.fetchToDoListFromServer()
+        if  let bearer = bearer {
+            toDoListController.fetchToDoListFromServer(bearer: bearer)
             tableView.reloadData()
         }
     }
@@ -121,9 +121,9 @@ class ToDoListTableViewController: UITableViewController, UITextFieldDelegate {
             guard let bearer = self.bearer else { return }
             
             if let userInput = self.newListName!.text {
-                let newList = ToDoList(id: nil, title: userInput, userID: Int16(bearer.userID), date: Date(), complete: false, context: CoreDataStack.shared.mainContext)
+                let newList = ToDoList(title: userInput, userID: Int16(bearer.userID), date: Date(), complete: false)
 
-                self.toDoListController.put(toDoList: newList)
+                self.toDoListController.put(toDoList: newList, bearer: bearer)
                 
                 do {
                     try CoreDataStack.shared.mainContext.save()

@@ -71,7 +71,8 @@ class WunderlistLoginViewController: UIViewController, UITextFieldDelegate {
                     }
                     guard let bearer = loginController.bearer else { return }
                     self.toDoItemController?.bearer = bearer
-                    self.toDoListController?.bearer = bearer
+                    //self.toDoListController?.bearer = bearer
+                    
                     DispatchQueue.main.async {
                         self.dismiss(animated: true, completion: nil)
                     }
