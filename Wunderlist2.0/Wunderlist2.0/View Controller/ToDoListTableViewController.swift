@@ -14,6 +14,7 @@ class ToDoListTableViewController: UITableViewController, UITextFieldDelegate {
     // MARK: - Properties
     private let loginController = LoginController()
     private let toDoItemController = ToDoItemController()
+    private let toDoListController = ToDoListController()
     
     var newListName: UITextField?
     var toDoLists: [ToDoList] = [] {
@@ -43,12 +44,18 @@ class ToDoListTableViewController: UITableViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        #warning("get items from server somehow")
+        if bearer != nil {
+            toDoListController.fetchToDoListFromServer()
+            tableView.reloadData()
+        }
     }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         tableView.reloadData()
     }
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         if loginController.bearer == nil {
@@ -115,8 +122,8 @@ class ToDoListTableViewController: UITableViewController, UITextFieldDelegate {
             
             if let userInput = self.newListName!.text {
                 let newList = ToDoList(id: nil, title: userInput, userID: Int16(bearer.userID), date: Date(), complete: false, context: CoreDataStack.shared.mainContext)
-                //self.toDoLists.append(newList)
-                #warning("Need to send to backend")
+
+                self.toDoListController.put(toDoList: newList)
                 
                 do {
                     try CoreDataStack.shared.mainContext.save()
