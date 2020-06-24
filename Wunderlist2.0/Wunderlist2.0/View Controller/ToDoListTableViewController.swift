@@ -28,6 +28,7 @@ class ToDoListTableViewController: UITableViewController, UITextFieldDelegate {
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        view.backgroundColor = UIColor(red: 239, green: 226, blue: 186, alpha: 1.0)
         tableView.reloadData()
     }
     override func viewDidAppear(_ animated: Bool) {
@@ -57,7 +58,6 @@ class ToDoListTableViewController: UITableViewController, UITextFieldDelegate {
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: ToDoListTableViewCell.reuseIdentifier, for: indexPath) as? ToDoListTableViewCell else { return UITableViewCell() }
-
         cell.toDoList = ToDoLists[indexPath.row]
         return cell
     }

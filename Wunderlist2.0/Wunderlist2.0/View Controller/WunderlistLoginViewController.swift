@@ -27,7 +27,6 @@ class WunderlistLoginViewController: UIViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         signUpButton.backgroundColor = UIColor(red: 197, green: 203, blue: 227, alpha: 1.0)
         signUpButton.tintColor = .white
         signUpButton.layer.cornerRadius = 5

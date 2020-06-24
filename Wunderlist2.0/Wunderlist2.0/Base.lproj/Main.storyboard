@@ -13,119 +13,11 @@
         <array key="AlegreyaSC-Bold.otf">
             <string>AlegreyaSC-Bold</string>
         </array>
+        <array key="AlegreyaSC-Regular.otf">
+            <string>AlegreyaSC-Regular</string>
+        </array>
     </customFonts>
     <scenes>
-        <!--Wunderlist Table View Controller-->
-        <scene sceneID="WM9-Er-cJU">
-            <objects>
-                <tableViewController id="psV-gN-w1y" customClass="WunderlistTableViewController" customModule="Wunderlist2_0" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="W1O-Ky-nXI">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <stackView key="tableHeaderView" opaque="NO" contentMode="scaleToFill" axis="vertical" id="EWf-60-gsO" userLabel="Choices Stack View">
-                            <rect key="frame" x="0.0" y="0.0" width="414" height="58"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <subviews>
-                                <stackView opaque="NO" contentMode="scaleToFill" spacing="125" translatesAutoresizingMaskIntoConstraints="NO" id="zkB-ft-JyH">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="20.5"/>
-                                    <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Sort by:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FOF-Wl-rl9">
-                                            <rect key="frame" x="0.0" y="0.0" width="213.5" height="20.5"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add ToDo" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1e3-dM-j2l">
-                                            <rect key="frame" x="338.5" y="0.0" width="75.5" height="20.5"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                    </subviews>
-                                </stackView>
-                                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="60" translatesAutoresizingMaskIntoConstraints="NO" id="MAN-Zg-feP">
-                                    <rect key="frame" x="0.0" y="20.5" width="414" height="37.5"/>
-                                    <subviews>
-                                        <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="ckb-uG-192">
-                                            <rect key="frame" x="0.0" y="0.0" width="304" height="38.5"/>
-                                            <segments>
-                                                <segment title="A to Z"/>
-                                                <segment title="Date"/>
-                                            </segments>
-                                        </segmentedControl>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k7s-QR-6tA">
-                                            <rect key="frame" x="364" y="0.0" width="50" height="37.5"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="50" id="xb0-W1-PPq"/>
-                                            </constraints>
-                                            <state key="normal" image="plus" catalog="system"/>
-                                            <connections>
-                                                <segue destination="Owb-uB-zPg" kind="show" identifier="addNewToDo" id="pgx-97-vfI"/>
-                                            </connections>
-                                        </button>
-                                    </subviews>
-                                </stackView>
-                            </subviews>
-                        </stackView>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="toDoItemCell" id="yAD-7D-osI" customClass="ToDoTableViewCell" customModule="Wunderlist2_0" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="86" width="414" height="43.5"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="yAD-7D-osI" id="MFl-8D-H3L" customClass="ToDoItemTableViewCell" customModule="Wunderlist2_0" customModuleProvider="target">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ijR-1t-Tfb">
-                                            <rect key="frame" x="370" y="11.5" width="36" height="20.5"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0vS-uG-e60">
-                                            <rect key="frame" x="90" y="11.5" width="33.5" height="20.5"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y86-Dy-2mj">
-                                            <rect key="frame" x="8" y="11" width="74" height="22"/>
-                                            <state key="normal" title="Button" image="checkmark.shield.fill" catalog="system"/>
-                                            <connections>
-                                                <action selector="toggleComplete:" destination="yAD-7D-osI" eventType="touchUpInside" id="YaN-qN-FfA"/>
-                                            </connections>
-                                        </button>
-                                    </subviews>
-                                    <constraints>
-                                        <constraint firstItem="0vS-uG-e60" firstAttribute="leading" secondItem="Y86-Dy-2mj" secondAttribute="trailing" constant="8" id="6Kd-Zt-S0q"/>
-                                        <constraint firstItem="ijR-1t-Tfb" firstAttribute="centerY" secondItem="MFl-8D-H3L" secondAttribute="centerY" id="ApS-81-lWo"/>
-                                        <constraint firstItem="Y86-Dy-2mj" firstAttribute="leading" secondItem="MFl-8D-H3L" secondAttribute="leading" constant="8" id="Jpe-se-J9f"/>
-                                        <constraint firstItem="Y86-Dy-2mj" firstAttribute="centerY" secondItem="MFl-8D-H3L" secondAttribute="centerY" id="OG7-js-xXr"/>
-                                        <constraint firstItem="0vS-uG-e60" firstAttribute="centerY" secondItem="MFl-8D-H3L" secondAttribute="centerY" id="ScQ-Qt-El7"/>
-                                        <constraint firstAttribute="trailing" secondItem="ijR-1t-Tfb" secondAttribute="trailing" constant="8" id="Wn6-1v-OMK"/>
-                                    </constraints>
-                                </tableViewCellContentView>
-                                <connections>
-                                    <outlet property="completeButton" destination="Y86-Dy-2mj" id="Ip0-3f-ydq"/>
-                                    <outlet property="dateLabel" destination="ijR-1t-Tfb" id="fJt-l5-owi"/>
-                                    <outlet property="toDoTitleLabel" destination="0vS-uG-e60" id="FOA-5X-Emh"/>
-                                    <segue destination="Owb-uB-zPg" kind="show" identifier="ToDoDetail" id="ak9-ED-BQV"/>
-                                </connections>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="psV-gN-w1y" id="X0b-dw-RS1"/>
-                            <outlet property="delegate" destination="psV-gN-w1y" id="tiz-T9-DAh"/>
-                        </connections>
-                    </tableView>
-                    <toolbarItems/>
-                    <navigationItem key="navigationItem" id="AEs-QD-0Lr"/>
-                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="miC-wN-18g" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2528" y="157"/>
-        </scene>
         <!--View Controller-->
         <scene sceneID="aYI-Xe-sNG">
             <objects>
@@ -135,19 +27,19 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="nEc-xW-giO">
-                                <rect key="frame" x="20" y="163" width="374" height="272.5"/>
+                                <rect key="frame" x="20" y="163" width="374" height="275.5"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="ToDo Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FH1-kG-sff">
                                         <rect key="frame" x="0.0" y="0.0" width="374" height="34"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <fontDescription key="fontDescription" name="AlegreyaSC-Regular" family="Alegreya SC" pointSize="17"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <stackView opaque="NO" contentMode="scaleToFill" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="ERS-mE-f1g" userLabel="Complete Stack View">
                                         <rect key="frame" x="0.0" y="54" width="374" height="30"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Complete?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w9L-rP-c0R">
-                                                <rect key="frame" x="0.0" y="0.0" width="344" height="20.5"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="344" height="23.5"/>
+                                                <fontDescription key="fontDescription" name="AlegreyaSC-Regular" family="Alegreya SC" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
@@ -162,16 +54,16 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="uV7-sp-OHc" userLabel="Description Stack View">
-                                        <rect key="frame" x="0.0" y="104" width="374" height="168.5"/>
+                                        <rect key="frame" x="0.0" y="104" width="374" height="171.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ToDo Description" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Jy-xp-NxS">
-                                                <rect key="frame" x="0.0" y="0.0" width="374" height="20.5"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="374" height="23.5"/>
+                                                <fontDescription key="fontDescription" name="AlegreyaSC-Regular" family="Alegreya SC" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="EwH-Rl-cIa">
-                                                <rect key="frame" x="0.0" y="40.5" width="374" height="128"/>
+                                                <rect key="frame" x="0.0" y="43.5" width="374" height="128"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                 <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -181,24 +73,27 @@
                                     </stackView>
                                 </subviews>
                             </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="So5-xa-Wf3">
+                                <rect key="frame" x="185.5" y="488.5" width="43" height="40"/>
+                                <fontDescription key="fontDescription" name="AlegreyaSC-Bold" family="Alegreya SC" pointSize="20"/>
+                                <state key="normal" title="Save"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="Poa-k9-Ve2" firstAttribute="trailing" secondItem="nEc-xW-giO" secondAttribute="trailing" constant="20" id="Ka3-RK-Kj0"/>
+                            <constraint firstItem="So5-xa-Wf3" firstAttribute="top" secondItem="nEc-xW-giO" secondAttribute="bottom" constant="50" id="S8i-ou-98F"/>
                             <constraint firstItem="nEc-xW-giO" firstAttribute="leading" secondItem="Poa-k9-Ve2" secondAttribute="leading" constant="20" id="Yhl-OS-cEx"/>
                             <constraint firstItem="nEc-xW-giO" firstAttribute="top" secondItem="Poa-k9-Ve2" secondAttribute="top" constant="75" id="vad-iy-0LS"/>
+                            <constraint firstItem="So5-xa-Wf3" firstAttribute="centerX" secondItem="iK8-mP-AGv" secondAttribute="centerX" id="zca-Ok-1cn"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Poa-k9-Ve2"/>
                     </view>
-<<<<<<< HEAD
                     <navigationItem key="navigationItem" id="O6R-tc-He6"/>
-=======
-                    <navigationItem key="navigationItem" id="WVl-Y1-HIO"/>
->>>>>>> master
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gws-Dh-tiU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3423" y="171"/>
+            <point key="canvasLocation" x="2238" y="465"/>
         </scene>
         <!--Wunderlist Login View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -278,7 +173,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1826" y="-317"/>
+            <point key="canvasLocation" x="2238" y="-355"/>
         </scene>
         <!--To Do List Table View Controller-->
         <scene sceneID="1iB-Zp-ERE">
@@ -288,35 +183,93 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <stackView key="tableHeaderView" opaque="NO" contentMode="scaleToFill" axis="vertical" id="EWf-60-gsO" userLabel="Choices Stack View">
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="58"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <stackView opaque="NO" contentMode="scaleToFill" spacing="125" translatesAutoresizingMaskIntoConstraints="NO" id="zkB-ft-JyH">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="23.5"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Sort by:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FOF-Wl-rl9">
+                                            <rect key="frame" x="0.0" y="0.0" width="204" height="23.5"/>
+                                            <fontDescription key="fontDescription" name="AlegreyaSC-Regular" family="Alegreya SC" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add ToDo   " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1e3-dM-j2l">
+                                            <rect key="frame" x="329" y="0.0" width="85" height="23.5"/>
+                                            <fontDescription key="fontDescription" name="AlegreyaSC-Regular" family="Alegreya SC" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </stackView>
+                                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="MAN-Zg-feP">
+                                    <rect key="frame" x="0.0" y="23.5" width="414" height="34.5"/>
+                                    <subviews>
+                                        <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="ckb-uG-192">
+                                            <rect key="frame" x="0.0" y="0.0" width="284" height="35.5"/>
+                                            <segments>
+                                                <segment title="A to Z"/>
+                                                <segment title="Date"/>
+                                            </segments>
+                                        </segmentedControl>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k7s-QR-6tA">
+                                            <rect key="frame" x="334" y="0.0" width="80" height="34.5"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="80" id="xb0-W1-PPq"/>
+                                            </constraints>
+                                            <state key="normal" image="plus" catalog="system"/>
+                                            <connections>
+                                                <action selector="addNewToDoList:" destination="m48-2z-0rN" eventType="touchUpInside" id="iXd-J3-V5W"/>
+                                                <segue destination="Owb-uB-zPg" kind="show" identifier="addNewToDo" id="pgx-97-vfI"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
+                                </stackView>
+                            </subviews>
+                        </stackView>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="toDoListCell" id="vUr-TN-RWb" customClass="ToDoListTableViewCell" customModule="Wunderlist2_0" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="414" height="43"/>
+                                <rect key="frame" x="0.0" y="86" width="414" height="46"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="vUr-TN-RWb" id="WCz-Jx-7Qn">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="46"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4eR-gv-XgX">
-                                            <rect key="frame" x="25" y="11" width="33.5" height="21"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <rect key="frame" x="25" y="11" width="40.5" height="24"/>
+                                            <fontDescription key="fontDescription" name="AlegreyaSC-Bold" family="Alegreya SC" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="75w-CA-cWN">
-                                            <rect key="frame" x="308.5" y="0.0" width="100.5" height="43"/>
+                                            <rect key="frame" x="363" y="0.0" width="46" height="46"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="46" id="0pP-9x-fwz"/>
+                                            </constraints>
                                             <state key="normal" image="circle" catalog="system"/>
                                             <connections>
                                                 <action selector="completedIButtonToggled:" destination="vUr-TN-RWb" eventType="touchUpInside" id="Qhe-Yx-FTB"/>
                                             </connections>
                                         </button>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TpF-Pw-KYc">
+                                            <rect key="frame" x="320.5" y="11.5" width="37.5" height="23.5"/>
+                                            <fontDescription key="fontDescription" name="AlegreyaSC-Regular" family="Alegreya SC" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                     </subviews>
                                     <constraints>
                                         <constraint firstAttribute="trailing" secondItem="75w-CA-cWN" secondAttribute="trailing" constant="5" id="1XB-Ah-E7N"/>
                                         <constraint firstItem="4eR-gv-XgX" firstAttribute="leading" secondItem="WCz-Jx-7Qn" secondAttribute="leadingMargin" constant="5" id="6oz-Za-u3z"/>
+                                        <constraint firstItem="TpF-Pw-KYc" firstAttribute="centerY" secondItem="WCz-Jx-7Qn" secondAttribute="centerY" id="CVf-O4-G43"/>
+                                        <constraint firstItem="75w-CA-cWN" firstAttribute="leading" secondItem="TpF-Pw-KYc" secondAttribute="trailing" constant="5" id="OD6-zK-W6Y"/>
                                         <constraint firstItem="4eR-gv-XgX" firstAttribute="centerY" secondItem="WCz-Jx-7Qn" secondAttribute="centerY" id="Ofw-vH-K19"/>
                                         <constraint firstItem="75w-CA-cWN" firstAttribute="centerY" secondItem="WCz-Jx-7Qn" secondAttribute="centerY" id="Qeu-Vh-gl4"/>
-                                        <constraint firstItem="75w-CA-cWN" firstAttribute="leading" secondItem="4eR-gv-XgX" secondAttribute="trailing" constant="250" id="ZhU-qj-9o8"/>
                                         <constraint firstItem="4eR-gv-XgX" firstAttribute="top" secondItem="WCz-Jx-7Qn" secondAttribute="topMargin" id="a6Z-8P-Wel"/>
+                                        <constraint firstItem="TpF-Pw-KYc" firstAttribute="leading" relation="lessThanOrEqual" secondItem="4eR-gv-XgX" secondAttribute="trailing" constant="255" id="dhr-31-vU1"/>
+                                        <constraint firstItem="TpF-Pw-KYc" firstAttribute="leading" relation="lessThanOrEqual" secondItem="4eR-gv-XgX" secondAttribute="trailing" constant="255" id="kL5-yB-hVK"/>
                                         <constraint firstItem="4eR-gv-XgX" firstAttribute="bottom" secondItem="WCz-Jx-7Qn" secondAttribute="bottomMargin" id="ynB-Yi-JmP"/>
                                         <constraint firstAttribute="bottom" secondItem="75w-CA-cWN" secondAttribute="bottom" id="z89-n9-Ahk"/>
                                         <constraint firstItem="75w-CA-cWN" firstAttribute="top" secondItem="WCz-Jx-7Qn" secondAttribute="top" id="zLs-2U-eD1"/>
@@ -325,7 +278,7 @@
                                 <connections>
                                     <outlet property="TitleLabel" destination="4eR-gv-XgX" id="Crv-WX-A9F"/>
                                     <outlet property="completedButton" destination="75w-CA-cWN" id="xXz-tx-IdP"/>
-                                    <segue destination="psV-gN-w1y" kind="show" identifier="showItems" id="UrQ-DT-XFz"/>
+                                    <segue destination="Owb-uB-zPg" kind="show" identifier="ToDoDetail" id="mmo-ky-Ap3"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -334,13 +287,7 @@
                             <outlet property="delegate" destination="m48-2z-0rN" id="gpZ-uT-J1d"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="gLj-Pg-sZC">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="EwM-wb-mGO">
-                            <connections>
-                                <action selector="addNewToDoList:" destination="m48-2z-0rN" id="ttm-Tc-tO1"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" id="gLj-Pg-sZC"/>
                     <connections>
                         <segue destination="BYZ-38-t0r" kind="presentation" identifier="LoginViewModalSegue" id="izX-MT-TUy"/>
                     </connections>
@@ -368,8 +315,10 @@
             <point key="canvasLocation" x="221.73913043478262" y="110.49107142857143"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="mmo-ky-Ap3"/>
+    </inferredMetricsTieBreakers>
     <resources>
-        <image name="checkmark.shield.fill" catalog="system" width="128" height="121"/>
         <image name="circle" catalog="system" width="128" height="121"/>
         <image name="plus" catalog="system" width="128" height="113"/>
     </resources>
