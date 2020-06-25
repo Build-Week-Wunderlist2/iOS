@@ -121,15 +121,9 @@ class ToDoListTableViewController: UITableViewController, UITextFieldDelegate {
             guard let bearer = self.bearer else { return }
             
             if let userInput = self.newListName!.text {
-                let newList = ToDoList(title: userInput, userID: Int16(bearer.userID), date: Date(), complete: false)
 
                 self.toDoListController.put(title: userInput, complete: false, bearer: bearer)
-                
-                do {
-                    try CoreDataStack.shared.mainContext.save()
-                } catch {
-                    NSLog("Error saving manage object context: \(error)")
-                }
+                //self.toDoListController.fetchToDoListFromServer(bearer: bearer)
             }
         }
         

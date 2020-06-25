@@ -22,7 +22,7 @@ class ToDoListController {
    // var bearer: Bearer?
     
     let baseURL = URL(string: "https://todolist1213.herokuapp.com/api")!
-    
+    var returnedEntries: [ToDoListRepresentation] = []
     typealias CompletionHandler = (Result<Bool, NetworkError>) -> Void
     
     func put(title: String, complete: Bool, bearer: Bearer, completion: @escaping CompletionHandler = { _ in }) {
@@ -32,13 +32,12 @@ class ToDoListController {
         request.httpMethod = "POST"
         request.addValue("\(bearer.token)", forHTTPHeaderField: "Authorization")
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        print(bearer.token)
         
         do {
             let newData = dataToSend(title: title, complete: complete, user_id: bearer.userID)
             
             request.httpBody = try JSONEncoder().encode(newData)
-            print(String(data: request.httpBody!, encoding: .utf8)!)
-            
         } catch {
            NSLog("Error encoding toDoItem: \(error)")
             completion(.failure(.decodeFailed))
@@ -59,6 +58,13 @@ class ToDoListController {
             let jsonDecoder = JSONDecoder()
             do {
                 let dataResults = try jsonDecoder.decode(ToDoListRepresentation.self, from: data)
+                
+                ToDoList(id: dataResults.id, title: dataResults.title, userID: dataResults.userID, complete: dataResults.complete, context: CoreDataStack.shared.mainContext)
+                do {
+                    try CoreDataStack.shared.mainContext.save()
+                } catch {
+                    NSLog("Error saving manage object context: \(error)")
+                }
             } catch {
                 
             }
@@ -70,12 +76,10 @@ class ToDoListController {
     }
     
     func fetchToDoListFromServer(bearer: Bearer, completion: @escaping CompletionHandler = { _ in }) {
-        //guard let bearer = bearer else { return }
         
         let queryURL = baseURL.appendingPathComponent("/user/\(bearer.userID)/task")
-        let requestURL = queryURL.appendingPathExtension("json")
         
-        var request = URLRequest(url: requestURL)
+        var request = URLRequest(url: queryURL)
         request.httpMethod = "GET"
         request.addValue("\(bearer.token)", forHTTPHeaderField: "Authorization")
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
@@ -89,8 +93,6 @@ class ToDoListController {
                 }
                 return
             }
-            
-            //print("response \(response)")
 
             guard let data = data else {
                 NSLog("Error: No data returned from data task")
@@ -100,17 +102,18 @@ class ToDoListController {
                 return
             }
 
-            // Pull the JSON out of the data, and turn it into [TaskRepresentation]
+            // Pull the JSON out of the data, and turn it into [ToDoListRepresentation]
             do {
-                let toDoListRepresentations = try JSONDecoder().decode([String: ToDoListRepresentation].self, from: data).map({ $0.value })
+                let toDoListRepresentations = try JSONDecoder().decode([ToDoListRepresentation].self, from: data)
 
                 // Figure out which toDoItem representations don't exist in Core Data, so we can add them, and figure out which ones have changed
                 print(toDoListRepresentations)
-                try self.updateToDoItem(with: toDoListRepresentations)
+                //try self.updateToDoItem(with: toDoListRepresentations)
 
                 DispatchQueue.main.async {
                     completion(.success(true))
                 }
+                
             } catch {
                 NSLog("Error decoding toDoList representations: \(error)")
                 DispatchQueue.main.async {
@@ -157,8 +160,8 @@ class ToDoListController {
                     guard let representation = representationsByID[id] else { continue }
                     
                     toDoList.title = representation.title
-                    toDoList.complete = representation.complete ?? false
-                    toDoList.date = representation.date
+                    toDoList.complete = representation.complete
+                    //toDoList.date = representation.date
 
                     // If we updated the task, that means we don't need to make a copy of it. It already exists in Core Data, so remove it from the tasks we still need to create
                     toDoListToCreate.removeValue(forKey: id)
@@ -177,41 +180,41 @@ class ToDoListController {
         // This will save the correct context (background context)
         try CoreDataStack.shared.save(context: context)
     }
-//
-//    func deleteToDoItemFromServer(_ toDoItem: ToDoItem, completion: @escaping CompletionHandler = { _ in }) {
-//        // Make the URL by adding the identifier to the base URL, and add the .json
-////        guard let identifier = toDoItem.id else {
-////            completion(.failure(.noIdentifier))
-////            return
-////        }
-//
-//        let requestURL = baseURL
-//           // .appendingPathComponent(identifier.uuidString)
-//            .appendingPathExtension("json")
-//
-//        var request = URLRequest(url: requestURL)
-//        request.httpMethod = "DELETE"
-//
-//        URLSession.shared.dataTask(with: request) { (_, response, error) in
-//
-//            if let response = response as? HTTPURLResponse,
-//                response.statusCode != 200 {
-//                //Some code here about what went wrong
-//                NSLog("Error: Status code is not the expected 200. Instead it is \(response.statusCode)")
-//            }
-//
-//
-//            if let error = error {
-//               // NSLog("Error deleting task for id \(identifier.uuidString): \(error)")
-//                DispatchQueue.main.async {
-//                    completion(.failure(.otherEror(error)))
-//                }
-//                return
-//            }
-//            DispatchQueue.main.async {
-//                completion(.success(true))
-//            }
-//        }.resume()
-//    }
-//
+
+    func deleteToDoItemFromServer(_ toDoItem: ToDoItem, completion: @escaping CompletionHandler = { _ in }) {
+        // Make the URL by adding the identifier to the base URL, and add the .json
+//        guard let identifier = toDoItem.id else {
+//            completion(.failure(.noIdentifier))
+//            return
+//        }
+
+        let requestURL = baseURL
+           // .appendingPathComponent(identifier.uuidString)
+            .appendingPathExtension("json")
+
+        var request = URLRequest(url: requestURL)
+        request.httpMethod = "DELETE"
+
+        URLSession.shared.dataTask(with: request) { (_, response, error) in
+
+            if let response = response as? HTTPURLResponse,
+                response.statusCode != 200 {
+                //Some code here about what went wrong
+                NSLog("Error: Status code is not the expected 200. Instead it is \(response.statusCode)")
+            }
+
+
+            if let error = error {
+               // NSLog("Error deleting task for id \(identifier.uuidString): \(error)")
+                DispatchQueue.main.async {
+                    completion(.failure(.otherEror(error)))
+                }
+                return
+            }
+            DispatchQueue.main.async {
+                completion(.success(true))
+            }
+        }.resume()
+    }
+
 }
