@@ -89,8 +89,8 @@ class ToDoListTableViewController: UITableViewController, UITextFieldDelegate {
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             let list = fetchedResultsController.object(at: indexPath)
-            
-            //ToDoListController.deleteEntryFromServer(entry: entry)
+            guard let bearer = loginController.bearer else { return }
+            toDoListController.deleteToDoItemFromServer(bearer: bearer, toDoList: list)
             
             let context = CoreDataStack.shared.mainContext
             

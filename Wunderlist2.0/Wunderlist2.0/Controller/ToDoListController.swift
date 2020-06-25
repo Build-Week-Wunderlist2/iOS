@@ -181,19 +181,14 @@ class ToDoListController {
         try CoreDataStack.shared.save(context: context)
     }
 
-    func deleteToDoItemFromServer(_ toDoItem: ToDoItem, completion: @escaping CompletionHandler = { _ in }) {
-        // Make the URL by adding the identifier to the base URL, and add the .json
-//        guard let identifier = toDoItem.id else {
-//            completion(.failure(.noIdentifier))
-//            return
-//        }
+    func deleteToDoItemFromServer(bearer: Bearer, toDoList: ToDoList, completion: @escaping CompletionHandler = { _ in }) {
 
-        let requestURL = baseURL
-           // .appendingPathComponent(identifier.uuidString)
-            .appendingPathExtension("json")
-
-        var request = URLRequest(url: requestURL)
+        let queryURL = baseURL.appendingPathComponent("/user/todos/\(toDoList.id)")
+        
+        var request = URLRequest(url: queryURL)
         request.httpMethod = "DELETE"
+        request.addValue("\(bearer.token)", forHTTPHeaderField: "Authorization")
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
 
         URLSession.shared.dataTask(with: request) { (_, response, error) in
 
