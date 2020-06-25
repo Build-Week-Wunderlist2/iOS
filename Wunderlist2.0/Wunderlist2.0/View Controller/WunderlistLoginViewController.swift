@@ -29,10 +29,10 @@ class WunderlistLoginViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        signUpButton.backgroundColor = UIColor(red: 197, green: 203, blue: 227, alpha: 1.0)
+        signUpButton.backgroundColor = UIColor(red: 197/255, green: 203/255, blue: 227/255, alpha: 1.0)
         signUpButton.tintColor = .white
         signUpButton.layer.cornerRadius = 5
-        loginSegmentedControl.backgroundColor = UIColor(red: 197, green: 203, blue: 227, alpha: 1.0)
+        loginSegmentedControl.backgroundColor = UIColor(red: 197/255, green: 203/255, blue: 227/255, alpha: 1.0)
         loginSegmentedControl.tintColor = .white
         loginSegmentedControl.layer.cornerRadius = 5
     }

@@ -123,7 +123,7 @@ class ToDoListTableViewController: UITableViewController, UITextFieldDelegate {
             if let userInput = self.newListName!.text {
                 let newList = ToDoList(title: userInput, userID: Int16(bearer.userID), date: Date(), complete: false)
 
-                self.toDoListController.put(toDoList: newList, bearer: bearer)
+                self.toDoListController.put(title: userInput, complete: false, bearer: bearer)
                 
                 do {
                     try CoreDataStack.shared.mainContext.save()

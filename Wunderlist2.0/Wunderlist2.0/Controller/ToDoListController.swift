@@ -6,6 +6,14 @@
 //  Copyright © 2020 thecoderpilot. All rights reserved.
 //
 
+
+struct dataToSend: Codable {
+    var title: String
+    var complete: Bool
+    var user_id: Int
+}
+
+
 import Foundation
 import CoreData
 
@@ -17,28 +25,22 @@ class ToDoListController {
     
     typealias CompletionHandler = (Result<Bool, NetworkError>) -> Void
     
-    func put(toDoList: ToDoList, bearer: Bearer, completion: @escaping CompletionHandler = { _ in }) {
-       // guard let bearer = bearer else { return }
+    func put(title: String, complete: Bool, bearer: Bearer, completion: @escaping CompletionHandler = { _ in }) {
         let queryURL = baseURL.appendingPathComponent("/user/todos")
-       let requestURL = queryURL.appendingPathExtension("json")
         
         var request = URLRequest(url: queryURL)
         request.httpMethod = "POST"
-        print("user data")
-        print (bearer.token)
-        print(bearer.userID)
         request.addValue("\(bearer.token)", forHTTPHeaderField: "Authorization")
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         
         do {
-            guard let toDoListRepresentation = toDoList.toDoListRepresentation else {
-                completion(.failure(.noRep))
-                return
-            }
+            let newData = dataToSend(title: title, complete: complete, user_id: bearer.userID)
             
-            request.httpBody = try JSONEncoder().encode(toDoListRepresentation)
+            request.httpBody = try JSONEncoder().encode(newData)
+            print(String(data: request.httpBody!, encoding: .utf8)!)
             
         } catch {
-            NSLog("Error encoding toDoItem \(toDoList): \(error)")
+           NSLog("Error encoding toDoItem: \(error)")
             completion(.failure(.decodeFailed))
             return
         }
@@ -52,13 +54,11 @@ class ToDoListController {
                 }
                 return
             }
-            print(response!)
-            
+
             guard let data = data  else { return }
             let jsonDecoder = JSONDecoder()
             do {
                 let dataResults = try jsonDecoder.decode(ToDoListRepresentation.self, from: data)
-                print(dataResults)
             } catch {
                 
             }
@@ -78,8 +78,9 @@ class ToDoListController {
         var request = URLRequest(url: requestURL)
         request.httpMethod = "GET"
         request.addValue("\(bearer.token)", forHTTPHeaderField: "Authorization")
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
 
-        URLSession.shared.dataTask(with: request) { (data, _, error) in
+        URLSession.shared.dataTask(with: request) { (data, response, error) in
 
             if let error = error {
                 NSLog("Error fetching tasks: \(error)")
@@ -88,6 +89,8 @@ class ToDoListController {
                 }
                 return
             }
+            
+            //print("response \(response)")
 
             guard let data = data else {
                 NSLog("Error: No data returned from data task")

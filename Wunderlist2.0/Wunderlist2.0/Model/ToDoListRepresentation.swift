@@ -20,6 +20,6 @@ struct ToDoListRepresentation: Codable {
         case id
         case title
         case userID = "user_id"
-        case date
+        case date = "created_at"
     }
 }
