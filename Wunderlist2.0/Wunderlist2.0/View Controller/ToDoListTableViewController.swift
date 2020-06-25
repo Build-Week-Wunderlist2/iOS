@@ -28,16 +28,16 @@ class ToDoListTableViewController: UITableViewController, UITextFieldDelegate {
     var bearer: Bearer?
     
 
-    lazy var fetchedResultsController: NSFetchedResultsController<ToDoItem> = {
-        let fetchRequest: NSFetchRequest<ToDoItem> = ToDoItem.fetchRequest()
-        fetchRequest.sortDescriptors = [NSSortDescriptor(key: "date", ascending: true),
-                                        NSSortDescriptor(key: "title", ascending: true)]
-        let moc = CoreDataStack.shared.mainContext
-        let frc = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: moc, sectionNameKeyPath: "date", cacheName: nil)
-        frc.delegate = self
-        try! frc.performFetch()
-        return frc
-    }()
+//    lazy var fetchedResultsController: NSFetchedResultsController<ToDoItem> = {
+//        let fetchRequest: NSFetchRequest<ToDoItem> = ToDoItem.fetchRequest()
+//        fetchRequest.sortDescriptors = [NSSortDescriptor(key: "date", ascending: true),
+//                                        NSSortDescriptor(key: "title", ascending: true)]
+//        let moc = CoreDataStack.shared.mainContext
+//        let frc = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: moc, sectionNameKeyPath: "date", cacheName: nil)
+//        frc.delegate = self
+//        try! frc.performFetch()
+//        return frc
+//    }()
     
     override func viewDidLoad() {
         view.backgroundColor = UIColor(red: 239/255, green: 226/255, blue: 186/255, alpha: 1.0)
@@ -67,13 +67,13 @@ class ToDoListTableViewController: UITableViewController, UITextFieldDelegate {
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-     //  return 1
-        return fetchedResultsController.sections?.count ?? 1
+       return 1
+//        return fetchedResultsController.sections?.count ?? 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return fetchedResultsController.sections?[section].numberOfObjects ?? 0
-       // return ToDoLists.count
+//        return fetchedResultsController.sections?[section].numberOfObjects ?? 0
+        return ToDoLists.count
     }
 
 
@@ -83,27 +83,27 @@ class ToDoListTableViewController: UITableViewController, UITextFieldDelegate {
         return cell
     }
     
-    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        guard let sectionInfo = fetchedResultsController.sections?[section] else { return nil }
-        return sectionInfo.name.capitalized
-    }
+//    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+//        guard let sectionInfo = fetchedResultsController.sections?[section] else { return nil }
+//        return sectionInfo.name.capitalized
+//    }
 
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            let toDoToDelete = fetchedResultsController.object(at: indexPath)
-            
-            toDoItemController.deleteToDoItemFromServer(toDoToDelete)
-            
-            let moc = CoreDataStack.shared.mainContext
-            moc.delete(toDoToDelete)
-            do {
-                try moc.save()
-            } catch {
-                moc.reset()
-                NSLog("Error saving managed object context: \(error)")
-            }
-        }
-    }
+//    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+//        if editingStyle == .delete {
+//            let toDoToDelete = fetchedResultsController.object(at: indexPath)
+//
+//            toDoItemController.deleteToDoItemFromServer(toDoToDelete)
+//
+//            let moc = CoreDataStack.shared.mainContext
+//            moc.delete(toDoToDelete)
+//            do {
+//                try moc.save()
+//            } catch {
+//                moc.reset()
+//                NSLog("Error saving managed object context: \(error)")
+//            }
+//        }
+//    }
 
     
   // MARK: - Navigation
@@ -111,6 +111,13 @@ class ToDoListTableViewController: UITableViewController, UITextFieldDelegate {
         if segue.identifier == "LoginViewModalSegue",
             let loginVC = segue.destination as? WunderlistLoginViewController {
             loginVC.loginController = loginController
+        }
+        if segue.identifier == "ToDodetail",
+            let detailVC = segue.destination as? ToDoListDetailViewController {
+            if let indexPath = tableView.indexPathForSelectedRow {
+                detailVC.toDo = ToDoLists[indexPath]
+                detailVC.toDoItemController = toDoItemController
+            }
         }
     }
     
@@ -139,7 +146,7 @@ class ToDoListTableViewController: UITableViewController, UITextFieldDelegate {
         }
         self.present(dialogMessage, animated: true, completion: nil)
         tableView.reloadData()
-        print(ToDoLists)
+        print("ToDoLists: \(ToDoLists)")
     }
 
 }

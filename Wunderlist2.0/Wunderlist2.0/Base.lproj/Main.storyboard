@@ -18,10 +18,10 @@
         </array>
     </customFonts>
     <scenes>
-        <!--View Controller-->
+        <!--To Do List Detail View Controller-->
         <scene sceneID="aYI-Xe-sNG">
             <objects>
-                <viewController id="Owb-uB-zPg" sceneMemberID="viewController">
+                <viewController id="Owb-uB-zPg" customClass="ToDoListDetailViewController" customModule="Wunderlist2_0" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="iK8-mP-AGv">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -50,6 +50,9 @@
                                                     <constraint firstAttribute="width" constant="30" id="XSa-ar-cbZ"/>
                                                 </constraints>
                                                 <state key="normal" title="Button" image="circle" catalog="system"/>
+                                                <connections>
+                                                    <action selector="completeButtonTapped:" destination="Owb-uB-zPg" eventType="touchUpInside" id="uDD-hO-WOd"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
@@ -65,6 +68,9 @@
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="EwH-Rl-cIa">
                                                 <rect key="frame" x="0.0" y="43.5" width="374" height="128"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="128" id="DsM-gg-SC5"/>
+                                                </constraints>
                                                 <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -73,23 +79,64 @@
                                     </stackView>
                                 </subviews>
                             </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="14" translatesAutoresizingMaskIntoConstraints="NO" id="EJC-sw-s1V">
+                                <rect key="frame" x="102.5" y="488.5" width="209" height="67"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="6Iw-IZ-eTa">
+                                        <rect key="frame" x="58.5" y="0.0" width="92.5" height="22"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Repeat?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aIB-2o-Sy7">
+                                                <rect key="frame" x="0.0" y="0.0" width="62.5" height="22"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TBN-aj-APX">
+                                                <rect key="frame" x="72.5" y="0.0" width="20" height="22"/>
+                                                <state key="normal" image="circle" catalog="system"/>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="EES-kK-I7x">
+                                        <rect key="frame" x="0.0" y="36" width="209" height="32"/>
+                                        <segments>
+                                            <segment title="Daily"/>
+                                            <segment title="Weekly"/>
+                                            <segment title="Monthly"/>
+                                        </segments>
+                                    </segmentedControl>
+                                </subviews>
+                            </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="So5-xa-Wf3">
-                                <rect key="frame" x="185.5" y="488.5" width="43" height="40"/>
+                                <rect key="frame" x="159.5" y="655.5" width="95" height="40"/>
                                 <fontDescription key="fontDescription" name="AlegreyaSC-Bold" family="Alegreya SC" pointSize="20"/>
-                                <state key="normal" title="Save"/>
+                                <state key="normal" title="Save ToDo"/>
+                                <connections>
+                                    <action selector="saveToDoButtonTapped:" destination="Owb-uB-zPg" eventType="touchUpInside" id="F4q-uU-fY3"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="Poa-k9-Ve2" firstAttribute="trailing" secondItem="nEc-xW-giO" secondAttribute="trailing" constant="20" id="Ka3-RK-Kj0"/>
-                            <constraint firstItem="So5-xa-Wf3" firstAttribute="top" secondItem="nEc-xW-giO" secondAttribute="bottom" constant="50" id="S8i-ou-98F"/>
+                            <constraint firstItem="EJC-sw-s1V" firstAttribute="centerX" secondItem="iK8-mP-AGv" secondAttribute="centerX" id="RYG-sb-n69"/>
                             <constraint firstItem="nEc-xW-giO" firstAttribute="leading" secondItem="Poa-k9-Ve2" secondAttribute="leading" constant="20" id="Yhl-OS-cEx"/>
+                            <constraint firstItem="EJC-sw-s1V" firstAttribute="top" secondItem="nEc-xW-giO" secondAttribute="bottom" constant="50" id="icR-TY-wPk"/>
+                            <constraint firstItem="So5-xa-Wf3" firstAttribute="top" secondItem="EJC-sw-s1V" secondAttribute="bottom" constant="100" id="pNs-cR-qb5"/>
                             <constraint firstItem="nEc-xW-giO" firstAttribute="top" secondItem="Poa-k9-Ve2" secondAttribute="top" constant="75" id="vad-iy-0LS"/>
                             <constraint firstItem="So5-xa-Wf3" firstAttribute="centerX" secondItem="iK8-mP-AGv" secondAttribute="centerX" id="zca-Ok-1cn"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Poa-k9-Ve2"/>
                     </view>
                     <navigationItem key="navigationItem" id="O6R-tc-He6"/>
+                    <connections>
+                        <outlet property="completeButton" destination="pXQ-EP-B0g" id="lb5-Fi-NKV"/>
+                        <outlet property="repeatButton" destination="TBN-aj-APX" id="sGT-3w-wzA"/>
+                        <outlet property="repeatSegmentedControl" destination="EES-kK-I7x" id="vQm-08-hnb"/>
+                        <outlet property="saveToDo" destination="So5-xa-Wf3" id="VIy-nw-2rJ"/>
+                        <outlet property="toDoDescriptionTextView" destination="EwH-Rl-cIa" id="MXA-vX-pJ9"/>
+                        <outlet property="toDoNameTextField" destination="FH1-kG-sff" id="NNi-He-fuq"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gws-Dh-tiU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -223,13 +270,12 @@
                                             <state key="normal" image="plus" catalog="system"/>
                                             <connections>
                                                 <action selector="addNewToDoList:" destination="m48-2z-0rN" eventType="touchUpInside" id="iXd-J3-V5W"/>
-                                                <segue destination="Owb-uB-zPg" kind="show" identifier="addNewToDo" id="pgx-97-vfI"/>
                                             </connections>
                                         </button>
                                     </subviews>
                                 </stackView>
                                 <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="6FJ-KZ-aTm">
-                                    <rect key="frame" x="0.0" y="46" width="414" height="29"/>
+                                    <rect key="frame" x="0.0" y="45.5" width="414" height="29.5"/>
                                     <color key="backgroundColor" red="0.93725490199999995" green="0.8862745098" blue="0.72941176470000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <color key="tintColor" red="0.7725490196" green="0.79607843140000001" blue="0.89019607840000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <textInputTraits key="textInputTraits"/>
@@ -289,6 +335,7 @@
                                 <connections>
                                     <outlet property="TitleLabel" destination="4eR-gv-XgX" id="Crv-WX-A9F"/>
                                     <outlet property="completedButton" destination="75w-CA-cWN" id="xXz-tx-IdP"/>
+                                    <outlet property="dateLabel" destination="TpF-Pw-KYc" id="Eb8-Hn-2be"/>
                                     <segue destination="Owb-uB-zPg" kind="show" identifier="ToDoDetail" id="mmo-ky-Ap3"/>
                                 </connections>
                             </tableViewCell>
@@ -328,9 +375,6 @@
             <point key="canvasLocation" x="221.73913043478262" y="110.49107142857143"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="mmo-ky-Ap3"/>
-    </inferredMetricsTieBreakers>
     <resources>
         <image name="circle" catalog="system" width="128" height="121"/>
         <image name="plus" catalog="system" width="128" height="113"/>
