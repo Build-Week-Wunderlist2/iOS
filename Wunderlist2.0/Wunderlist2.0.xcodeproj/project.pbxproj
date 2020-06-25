@@ -28,6 +28,8 @@
 		3AB1AD2B249C5B6900334311 /* ToDoItemController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AB1AD2A249C5B6900334311 /* ToDoItemController.swift */; };
 		3AE1BC2024A19B3600FB653A /* ToDoListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AE1BC1F24A19B3600FB653A /* ToDoListTableViewCell.swift */; };
 		3AE1BC2224A19C6D00FB653A /* ToDoListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AE1BC2124A19C6D00FB653A /* ToDoListTableViewController.swift */; };
+		3AE1BC2424A2F1F800FB653A /* ToDoListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AE1BC2324A2F1F800FB653A /* ToDoListController.swift */; };
+		3AE1BC2624A4104800FB653A /* CreateNewToDoItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AE1BC2524A4104800FB653A /* CreateNewToDoItemViewController.swift */; };
 		3AF634E8249DA6CF001C232E /* Wunderlist2_0UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AF634E7249DA6CF001C232E /* Wunderlist2_0UITests.swift */; };
 		3AF634F6249DA6E9001C232E /* Wunderlist2_0Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AF634F5249DA6E9001C232E /* Wunderlist2_0Tests.swift */; };
 		3AF63500249DAE3F001C232E /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AF634FF249DAE3F001C232E /* LoginController.swift */; };
@@ -76,6 +78,8 @@
 		3AB1AD2A249C5B6900334311 /* ToDoItemController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoItemController.swift; sourceTree = "<group>"; };
 		3AE1BC1F24A19B3600FB653A /* ToDoListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoListTableViewCell.swift; sourceTree = "<group>"; };
 		3AE1BC2124A19C6D00FB653A /* ToDoListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoListTableViewController.swift; sourceTree = "<group>"; };
+		3AE1BC2324A2F1F800FB653A /* ToDoListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoListController.swift; sourceTree = "<group>"; };
+		3AE1BC2524A4104800FB653A /* CreateNewToDoItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateNewToDoItemViewController.swift; sourceTree = "<group>"; };
 		3AF634E5249DA6CF001C232E /* Wunderlist2.0UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Wunderlist2.0UITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3AF634E7249DA6CF001C232E /* Wunderlist2_0UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Wunderlist2_0UITests.swift; sourceTree = "<group>"; };
 		3AF634E9249DA6CF001C232E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -156,9 +160,10 @@
 		3AB1AD15249C37B500334311 /* View Controller */ = {
 			isa = PBXGroup;
 			children = (
-				38423351249DB1D000E107DF /* WunderlistTableViewController.swift */,
 				38423353249DC60C00E107DF /* WunderlistLoginViewController.swift */,
 				3AE1BC2124A19C6D00FB653A /* ToDoListTableViewController.swift */,
+				38423351249DB1D000E107DF /* WunderlistTableViewController.swift */,
+				3AE1BC2524A4104800FB653A /* CreateNewToDoItemViewController.swift */,
 			);
 			path = "View Controller";
 			sourceTree = "<group>";
@@ -177,6 +182,7 @@
 			children = (
 				3AB1AD2A249C5B6900334311 /* ToDoItemController.swift */,
 				3AF634FF249DAE3F001C232E /* LoginController.swift */,
+				3AE1BC2324A2F1F800FB653A /* ToDoListController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -366,6 +372,8 @@
 				3AB1AD29249C5AD300334311 /* ToDoListRepresentation.swift in Sources */,
 				3AB1AD25249C55EB00334311 /* ToDoList+Convenience.swift in Sources */,
 				38423354249DC60C00E107DF /* WunderlistLoginViewController.swift in Sources */,
+				3AE1BC2624A4104800FB653A /* CreateNewToDoItemViewController.swift in Sources */,
+				3AE1BC2424A2F1F800FB653A /* ToDoListController.swift in Sources */,
 				3AB1AD2B249C5B6900334311 /* ToDoItemController.swift in Sources */,
 				3AB1AD23249C523300334311 /* Wunderlist.xcdatamodeld in Sources */,
 				3AE1BC2024A19B3600FB653A /* ToDoListTableViewCell.swift in Sources */,
