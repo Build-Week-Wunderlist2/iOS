@@ -13,26 +13,24 @@ extension ToDoList {
     @discardableResult convenience init(id: Int16 = 0,
                                         title: String,
                                         userID: Int16,
-                                        date: Date,
+                                        //date: Date,
                                         complete: Bool,
                                         context: NSManagedObjectContext = CoreDataStack.shared.mainContext) {
         self.init(context: context)
         self.id = id 
         self.title = title
         self.userID = userID
-        self.date = date
+        //self.date = date
         self.complete = complete
     }
     
     @discardableResult convenience init?(toDoListRepresentation: ToDoListRepresentation, context: NSManagedObjectContext = CoreDataStack.shared.mainContext) {
         
-        guard let complete = toDoListRepresentation.complete,
-            let id = toDoListRepresentation.id else { return nil }
-        self.init(id: id,
+        self.init(id: toDoListRepresentation.id,
                   title: toDoListRepresentation.title,
                   userID: toDoListRepresentation.userID,
-                  date: toDoListRepresentation.date,
-                  complete: complete,
+                  //date: toDoListRepresentation.date,
+                  complete: toDoListRepresentation.complete,
                   context: context)
     }
     
@@ -44,7 +42,8 @@ extension ToDoList {
         return ToDoListRepresentation(complete: complete,
                                      id: id,
                                      title: title,
-                                     userID: userID,
-                                     date: date)
+                                     userID: userID)
+                                     //date: date
+        
     }
 }

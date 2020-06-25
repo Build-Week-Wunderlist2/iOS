@@ -89,8 +89,8 @@ class ToDoListTableViewController: UITableViewController, UITextFieldDelegate {
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             let list = fetchedResultsController.object(at: indexPath)
-            
-            //ToDoListController.deleteEntryFromServer(entry: entry)
+            guard let bearer = loginController.bearer else { return }
+            toDoListController.deleteToDoItemFromServer(bearer: bearer, toDoList: list)
             
             let context = CoreDataStack.shared.mainContext
             
@@ -121,15 +121,9 @@ class ToDoListTableViewController: UITableViewController, UITextFieldDelegate {
             guard let bearer = self.bearer else { return }
             
             if let userInput = self.newListName!.text {
-                let newList = ToDoList(title: userInput, userID: Int16(bearer.userID), date: Date(), complete: false)
 
-                self.toDoListController.put(toDoList: newList, bearer: bearer)
-                
-                do {
-                    try CoreDataStack.shared.mainContext.save()
-                } catch {
-                    NSLog("Error saving manage object context: \(error)")
-                }
+                self.toDoListController.put(title: userInput, complete: false, bearer: bearer)
+                //self.toDoListController.fetchToDoListFromServer(bearer: bearer)
             }
         }
         
