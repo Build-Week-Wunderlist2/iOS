@@ -25,7 +25,6 @@ class WunderlistLoginViewController: UIViewController, UITextFieldDelegate {
     var toDoItemController: ToDoItemController?
     var toDoListController: ToDoListController?
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -71,7 +70,7 @@ class WunderlistLoginViewController: UIViewController, UITextFieldDelegate {
                     }
                     guard let bearer = loginController.bearer else { return }
                     self.toDoItemController?.bearer = bearer
-                    //self.toDoListController?.bearer = bearer
+                    self.toDoListController?.bearer = bearer
                     
                     DispatchQueue.main.async {
                         self.dismiss(animated: true, completion: nil)
@@ -80,9 +79,6 @@ class WunderlistLoginViewController: UIViewController, UITextFieldDelegate {
             }
             
         }
-    
-    
-    
     
     @IBAction func signInTypeChanged(_ sender: UISegmentedControl) {
         if sender.selectedSegmentIndex == 0 {
@@ -93,16 +89,4 @@ class WunderlistLoginViewController: UIViewController, UITextFieldDelegate {
             signUpButton.setTitle("Sign In", for: .normal)
         }
     }
-    
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destination.
-     // Pass the selected object to the new view controller.
-     }
-     */
 }
-
-

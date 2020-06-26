@@ -9,7 +9,6 @@
 import UIKit
 
 class ToDoListTableViewCell: UITableViewCell {
-    
 
     // MARK: - Properties
     static let reuseIdentifier = "toDoListCell"
@@ -47,7 +46,4 @@ class ToDoListTableViewCell: UITableViewCell {
     }
 
     }
-        
-        
-    
     

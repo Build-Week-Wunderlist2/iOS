@@ -37,7 +37,7 @@ extension ToDoList {
     var toDoListRepresentation: ToDoListRepresentation? {
         
         guard let title = title,
-            let date = date else { return nil }
+            let _ = date else { return nil }
         
         return ToDoListRepresentation(complete: complete,
                                      id: id,

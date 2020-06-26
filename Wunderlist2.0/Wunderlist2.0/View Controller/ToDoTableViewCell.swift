@@ -9,12 +9,11 @@
 import UIKit
 
 class ToDoTableViewCell: UITableViewCell {
-    //MARK: - IBOutlets
+    // MARK: - IBOutlets
     
     @IBOutlet weak var completeButton: UIButton!
     @IBOutlet weak var toDoTitleLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
-    
     
     // MARK: - Properties
     var toDoItem: ToDoItem? {
@@ -23,7 +22,7 @@ class ToDoTableViewCell: UITableViewCell {
         }
     }
 
-    //MARK: - IBActions
+    // MARK: - IBActions
     
     @IBAction func toggleComplete(_ sender: UIButton) {
         toDoItem?.complete.toggle()
@@ -43,10 +42,8 @@ class ToDoTableViewCell: UITableViewCell {
     private func updateViews() {
         guard let toDoItem = toDoItem else { return }
         
-        toDoTitleLabel.text = toDoItem.title
+        toDoTitleLabel.text = toDoItem.description
         completeButton.setImage((toDoItem.complete) ? UIImage(systemName: "checkmark.circle.fill") : UIImage(systemName: "circle"), for: .normal)
-        #warning("Fix this date properly")
-        dateLabel.text = "\(toDoItem.date)"
     }
     
 }

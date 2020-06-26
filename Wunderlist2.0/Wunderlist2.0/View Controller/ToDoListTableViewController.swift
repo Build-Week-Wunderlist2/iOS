@@ -13,7 +13,7 @@ class ToDoListTableViewController: UITableViewController, UITextFieldDelegate {
     
     // MARK: - Properties
     private let loginController = LoginController()
-    private let toDoItemController = ToDoItemController()
+   // private let toDoItemController = ToDoItemController()
     private let toDoListController = ToDoListController()
     
     var newListName: UITextField?
@@ -22,7 +22,7 @@ class ToDoListTableViewController: UITableViewController, UITextFieldDelegate {
             tableView.reloadData()
         }
     }
-    var bearer: Bearer?
+    //var bearer: Bearer?
     
     lazy var fetchedResultsController: NSFetchedResultsController<ToDoList> = {
         let fetchRequest: NSFetchRequest<ToDoList> = ToDoList.fetchRequest()
@@ -44,11 +44,10 @@ class ToDoListTableViewController: UITableViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        #warning("get items from server somehow")
-        if  let bearer = bearer {
-            toDoListController.fetchToDoListFromServer(bearer: bearer)
-            tableView.reloadData()
-        }
+//        if  let bearer = bearer {
+//            toDoListController.fetchToDoListFromServer(bearer: bearer)
+//            tableView.reloadData()
+//        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -68,7 +67,6 @@ class ToDoListTableViewController: UITableViewController, UITextFieldDelegate {
         addNewList()
     }
     
-    
     // MARK: - Table view data source
     
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -77,7 +75,6 @@ class ToDoListTableViewController: UITableViewController, UITextFieldDelegate {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return fetchedResultsController.sections?[section].numberOfObjects ?? 0
     }
-    
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: ToDoListTableViewCell.reuseIdentifier, for: indexPath) as? ToDoListTableViewCell else { return UITableViewCell() }
@@ -111,23 +108,28 @@ class ToDoListTableViewController: UITableViewController, UITextFieldDelegate {
             let loginVC = segue.destination as? WunderlistLoginViewController {
             loginVC.loginController = loginController
         }
+        if segue.identifier == "showTasksSegue",
+            let showTasksVC = segue.destination as? WunderlistTableViewController {
+            let indexPath = tableView.indexPathForSelectedRow!
+            let item = fetchedResultsController.object(at: indexPath)
+            showTasksVC.taskID = item.id
+        }
     }
     
     // MARK: - Functions
     func addNewList() {
-        bearer = loginController.bearer
+
         let dialogMessage = UIAlertController(title: "NewList", message: "Enter your new list name", preferredStyle: .alert)
-        let ok = UIAlertAction(title: "OK", style: .default) { (action) in
-            guard let bearer = self.bearer else { return }
+        let ok = UIAlertAction(title: "OK", style: .default) { (_) in
+            guard let bearer = self.loginController.bearer else { return }
             
             if let userInput = self.newListName!.text {
 
-                self.toDoListController.put(title: userInput, complete: false, bearer: bearer)
-                //self.toDoListController.fetchToDoListFromServer(bearer: bearer)
+                self.toDoListController.put(title: userInput, bearer: bearer, complete: false)
             }
         }
         
-        let cancel = UIAlertAction(title: "Cancel", style: .cancel) { (action) in
+        let cancel = UIAlertAction(title: "Cancel", style: .cancel) { (_) in
         }
         
         dialogMessage.addAction(ok)

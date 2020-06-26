@@ -6,26 +6,24 @@
 //  Copyright © 2020 thecoderpilot. All rights reserved.
 //
 
-
-struct dataToSend: Codable {
+struct DataToSend: Codable {
     var title: String
     var complete: Bool
     var user_id: Int
 }
-
 
 import Foundation
 import CoreData
 
 class ToDoListController {
     
-   // var bearer: Bearer?
+    var bearer: Bearer?
     
     let baseURL = URL(string: "https://todolist1213.herokuapp.com/api")!
     var returnedEntries: [ToDoListRepresentation] = []
     typealias CompletionHandler = (Result<Bool, NetworkError>) -> Void
     
-    func put(title: String, complete: Bool, bearer: Bearer, completion: @escaping CompletionHandler = { _ in }) {
+    func put(title: String, bearer: Bearer, complete: Bool, completion: @escaping CompletionHandler = { _ in }) {
         let queryURL = baseURL.appendingPathComponent("/user/todos")
         
         var request = URLRequest(url: queryURL)
@@ -35,7 +33,7 @@ class ToDoListController {
         print(bearer.token)
         
         do {
-            let newData = dataToSend(title: title, complete: complete, user_id: bearer.userID)
+            let newData = DataToSend(title: title, complete: complete, user_id: bearer.userID)
             
             request.httpBody = try JSONEncoder().encode(newData)
         } catch {
@@ -44,7 +42,7 @@ class ToDoListController {
             return
         }
         
-        URLSession.shared.dataTask(with: request) { (data, response, error) in
+        URLSession.shared.dataTask(with: request) { (data, _, error) in
             
             if let error = error {
                 NSLog("Error POSTting task to server: \(error)")
@@ -77,14 +75,14 @@ class ToDoListController {
     
     func fetchToDoListFromServer(bearer: Bearer, completion: @escaping CompletionHandler = { _ in }) {
         
-        let queryURL = baseURL.appendingPathComponent("/user/\(bearer.userID)/task")
+        let queryURL = baseURL.appendingPathComponent("/user/\(bearer.userID)/todos")
         
         var request = URLRequest(url: queryURL)
         request.httpMethod = "GET"
         request.addValue("\(bearer.token)", forHTTPHeaderField: "Authorization")
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
 
-        URLSession.shared.dataTask(with: request) { (data, response, error) in
+        URLSession.shared.dataTask(with: request) { (data, _, error) in
 
             if let error = error {
                 NSLog("Error fetching tasks: \(error)")
@@ -139,7 +137,7 @@ class ToDoListController {
         // if identifiersToFetch.contains(someTaskInCoreData)
         let predicate = NSPredicate(format: "identifier IN %@", identifiersToFetch)
 
-        let fetchRequest: NSFetchRequest<ToDoItem> = ToDoItem.fetchRequest()
+        let fetchRequest: NSFetchRequest<ToDoList> = ToDoList.fetchRequest()
         fetchRequest.predicate = predicate
 
         // Create a new background context. The thread that this context is created on is completely random; you have no control over it.
@@ -197,7 +195,6 @@ class ToDoListController {
                 //Some code here about what went wrong
                 NSLog("Error: Status code is not the expected 200. Instead it is \(response.statusCode)")
             }
-
 
             if let error = error {
                // NSLog("Error deleting task for id \(identifier.uuidString): \(error)")

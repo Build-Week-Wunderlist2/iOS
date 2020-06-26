@@ -9,6 +9,8 @@
 import Foundation
 import UIKit
 
+var bearerGlobal: Bearer?
+
 enum HTTPMethod: String {
     case get = "GET"
     case post = "POST"
@@ -63,7 +65,6 @@ class LoginController {
                 completion(NSError(domain: "", code: response.statusCode, userInfo: nil))
                 return
             }
-            #warning("Do something with the other responses")
             
             // If everything works out
             completion(nil)
@@ -112,6 +113,7 @@ class LoginController {
             let decoder = JSONDecoder()
             do {
                 self.bearer = try decoder.decode(Bearer.self, from: data)
+                bearerGlobal = try decoder.decode(Bearer.self, from: data)
                 completion(nil)
             } catch {
                 print("Error decoding bearer object: \(error)")
