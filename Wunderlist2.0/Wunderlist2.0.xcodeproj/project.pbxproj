@@ -30,8 +30,9 @@
 		3AE1BC2224A19C6D00FB653A /* ToDoListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AE1BC2124A19C6D00FB653A /* ToDoListTableViewController.swift */; };
 		3AE1BC2424A2F1F800FB653A /* ToDoListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AE1BC2324A2F1F800FB653A /* ToDoListController.swift */; };
 		3AE1BC2624A4104800FB653A /* CreateNewToDoItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AE1BC2524A4104800FB653A /* CreateNewToDoItemViewController.swift */; };
-		3AF634E8249DA6CF001C232E /* Wunderlist2_0UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AF634E7249DA6CF001C232E /* Wunderlist2_0UITests.swift */; };
-		3AF634F6249DA6E9001C232E /* Wunderlist2_0Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AF634F5249DA6E9001C232E /* Wunderlist2_0Tests.swift */; };
+		3AE1BC2924A593B200FB653A /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 3AE1BC2824A593B200FB653A /* .swiftlint.yml */; };
+		3AF634E8249DA6CF001C232E /* Wunderlist2UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AF634E7249DA6CF001C232E /* Wunderlist2UITests.swift */; };
+		3AF634F6249DA6E9001C232E /* Wunderlist2Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AF634F5249DA6E9001C232E /* Wunderlist2Tests.swift */; };
 		3AF63500249DAE3F001C232E /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AF634FF249DAE3F001C232E /* LoginController.swift */; };
 		3AF63502249DAECD001C232E /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AF63501249DAECD001C232E /* User.swift */; };
 		3AF63504249DAF2D001C232E /* Bearer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AF63503249DAF2D001C232E /* Bearer.swift */; };
@@ -80,11 +81,12 @@
 		3AE1BC2124A19C6D00FB653A /* ToDoListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoListTableViewController.swift; sourceTree = "<group>"; };
 		3AE1BC2324A2F1F800FB653A /* ToDoListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoListController.swift; sourceTree = "<group>"; };
 		3AE1BC2524A4104800FB653A /* CreateNewToDoItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateNewToDoItemViewController.swift; sourceTree = "<group>"; };
+		3AE1BC2824A593B200FB653A /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		3AF634E5249DA6CF001C232E /* Wunderlist2.0UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Wunderlist2.0UITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		3AF634E7249DA6CF001C232E /* Wunderlist2_0UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Wunderlist2_0UITests.swift; sourceTree = "<group>"; };
+		3AF634E7249DA6CF001C232E /* Wunderlist2UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Wunderlist2UITests.swift; sourceTree = "<group>"; };
 		3AF634E9249DA6CF001C232E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3AF634F3249DA6E9001C232E /* Wunderlist2.0Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Wunderlist2.0Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		3AF634F5249DA6E9001C232E /* Wunderlist2_0Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Wunderlist2_0Tests.swift; sourceTree = "<group>"; };
+		3AF634F5249DA6E9001C232E /* Wunderlist2Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Wunderlist2Tests.swift; sourceTree = "<group>"; };
 		3AF634F7249DA6E9001C232E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3AF634FF249DAE3F001C232E /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
 		3AF63501249DAECD001C232E /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -153,6 +155,7 @@
 				3AB1AD0A249B030500334311 /* Assets.xcassets */,
 				3AB1AD0C249B030500334311 /* LaunchScreen.storyboard */,
 				3AB1AD0F249B030500334311 /* Info.plist */,
+				3AE1BC2824A593B200FB653A /* .swiftlint.yml */,
 			);
 			path = Wunderlist2.0;
 			sourceTree = "<group>";
@@ -213,7 +216,7 @@
 		3AF634E6249DA6CF001C232E /* Wunderlist2.0UITests */ = {
 			isa = PBXGroup;
 			children = (
-				3AF634E7249DA6CF001C232E /* Wunderlist2_0UITests.swift */,
+				3AF634E7249DA6CF001C232E /* Wunderlist2UITests.swift */,
 				3AF634E9249DA6CF001C232E /* Info.plist */,
 			);
 			path = Wunderlist2.0UITests;
@@ -222,7 +225,7 @@
 		3AF634F4249DA6E9001C232E /* Wunderlist2.0Tests */ = {
 			isa = PBXGroup;
 			children = (
-				3AF634F5249DA6E9001C232E /* Wunderlist2_0Tests.swift */,
+				3AF634F5249DA6E9001C232E /* Wunderlist2Tests.swift */,
 				3AF634F7249DA6E9001C232E /* Info.plist */,
 			);
 			path = Wunderlist2.0Tests;
@@ -238,6 +241,7 @@
 				3AB1ACFA249B030400334311 /* Sources */,
 				3AB1ACFB249B030400334311 /* Frameworks */,
 				3AB1ACFC249B030400334311 /* Resources */,
+				3AE1BC2724A5932200FB653A /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -332,6 +336,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3AE1BC2924A593B200FB653A /* .swiftlint.yml in Resources */,
 				3842334D249DA51000E107DF /* Alegreya-Bold.otf in Resources */,
 				3AB1AD0E249B030500334311 /* LaunchScreen.storyboard in Resources */,
 				3842334F249DA51900E107DF /* AlegreyaSC-Bold.otf in Resources */,
@@ -357,6 +362,26 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		3AE1BC2724A5932200FB653A /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		3AB1ACFA249B030400334311 /* Sources */ = {
@@ -389,7 +414,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3AF634E8249DA6CF001C232E /* Wunderlist2_0UITests.swift in Sources */,
+				3AF634E8249DA6CF001C232E /* Wunderlist2UITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -397,7 +422,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3AF634F6249DA6E9001C232E /* Wunderlist2_0Tests.swift in Sources */,
+				3AF634F6249DA6E9001C232E /* Wunderlist2Tests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

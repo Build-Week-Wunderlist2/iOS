@@ -16,18 +16,20 @@ class CreateNewToDoItemViewController: UIViewController {
     var repeatsWeekly = false
     var repeatsMonthly = false
     
-    // MARK: - IBOutlets
-    @IBOutlet var nameTextField: UITextField!
-    @IBOutlet var completeButton: UIButton!
-    @IBOutlet var toDoDescriptionTextView: UITextView!
-    @IBOutlet var repeatsSegmentedControl: UISegmentedControl!
+    var toDoItemID: Int16 = 0
+    var bearer: Bearer?
     
+    private var todoItemController = ToDoItemController()
+    private var loginController: LoginController?
+    
+    // MARK: - IBOutlets
+    @IBOutlet var completeButton: UIButton!
+    @IBOutlet var desctiptionText: UITextField!
+    @IBOutlet var repeatsSegmentedControl: UISegmentedControl!
     
     override func viewDidLoad() {
         super.viewDidLoad()
     }
-    
-
     
     // MARK: - IBActions
     @IBAction func completeButtonToggled(_ sender: UIButton) {
@@ -37,13 +39,10 @@ class CreateNewToDoItemViewController: UIViewController {
     }
 
     @IBAction func saveButtonTapped(_ sender: Any) {
-        guard let title = nameTextField.text, !title.isEmpty,
-            let description = toDoDescriptionTextView.text else { return }
+        guard let description = desctiptionText.text else { return }
         
         let repeatSelected = repeatsSegmentedControl.selectedSegmentIndex
         let repeatSelection = RepeatSelection.allCases[repeatSelected]
-        let complete = completeButton
-        
         
         switch repeatSelection {
         case .daily:
@@ -55,15 +54,17 @@ class CreateNewToDoItemViewController: UIViewController {
         case .none:
             break
         }
+        guard let bearer = bearerGlobal else { return }
         
-        let newTodoItem = ToDoItem(id: 1, title: title, date: Date(), complete: todoItemComplete, toDoDescription: description, toDoID: 1, deadline: Date(), repeatsDaily: repeatsDaily, repeatsWeekly: repeatsWeekly, repeatsMonthly: repeatsMonthly)
+        todoItemController.put(bearer: bearer, complete: todoItemComplete, description: description, toDoID: Int(toDoItemID), repeatsDaily: repeatsDaily, repeatsWeekly: repeatsWeekly, repeatsMonthly: repeatsMonthly)
+        ToDoItem(id: 0, date: Date(), complete: todoItemComplete, toDoDescription: description, toDoID: toDoItemID, deadline: Date(), repeatsDaily: repeatsDaily, repeatsWeekly: repeatsWeekly, repeatsMonthly: repeatsMonthly, context: CoreDataStack.shared.mainContext)
         
         do {
-            try CoreDataStack.shared.mainContext.save()
-            navigationController?.dismiss(animated: true, completion: nil)
-        } catch {
-            NSLog("Error saving managed object context: \(error)")
-        }
+                try CoreDataStack.shared.mainContext.save()
+                navigationController?.dismiss(animated: true, completion: nil)
+            } catch {
+                NSLog("Error saving manage object context: \(error)")
+            }
         
         navigationController?.dismiss(animated: true, completion: nil)
     }

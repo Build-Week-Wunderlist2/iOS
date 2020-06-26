@@ -18,7 +18,6 @@ import CoreData
 
 extension ToDoItem {
     @discardableResult convenience init(id: Int16,
-                                        title: String,
                                         date: Date,
                                         complete: Bool = false,
                                         toDoDescription: String,
@@ -30,7 +29,6 @@ extension ToDoItem {
                                         context: NSManagedObjectContext = CoreDataStack.shared.mainContext) {
         self.init(context: context)
         self.id = id
-        self.title = title
         self.date = date
         self.complete = complete
         self.toDoDescription = toDoDescription
@@ -43,32 +41,25 @@ extension ToDoItem {
     
     @discardableResult convenience init?(toDoItemRepresentation: ToDoItemRepresentation,
                                          context: NSManagedObjectContext = CoreDataStack.shared.mainContext) {
-        guard let complete = toDoItemRepresentation.complete,
-            let deadline = toDoItemRepresentation.deadline,
-            let repeatsDaily = toDoItemRepresentation.repeatsDaily,
-            let repeatsWeekly = toDoItemRepresentation.repeatsWeekly,
-            let repeatsMonthly = toDoItemRepresentation.repeatsMonthly else { return nil }
         
-        self.init(id: toDoItemRepresentation.id ?? 1,
-                  title: toDoItemRepresentation.title,
+        self.init(id: toDoItemRepresentation.id,
                   date: toDoItemRepresentation.date,
-                  complete: complete,
+                  complete: toDoItemRepresentation.complete,
                   toDoDescription: toDoItemRepresentation.toDoDescription,
                   toDoID: toDoItemRepresentation.toDoID,
-                  deadline: deadline,
-                  repeatsDaily: repeatsDaily,
-                  repeatsWeekly: repeatsWeekly,
-                  repeatsMonthly: repeatsMonthly)
+                  deadline: toDoItemRepresentation.deadline,
+                  repeatsDaily: toDoItemRepresentation.repeatsDaily,
+                  repeatsWeekly: toDoItemRepresentation.repeatsWeekly,
+                  repeatsMonthly: toDoItemRepresentation.repeatsMonthly)
     }
     
     var toDoItemRepresentation: ToDoItemRepresentation? {
-        guard let title = title,
-            let date = date,
-            let toDoDescription = toDoDescription else { return nil }
+        guard let date = date,
+            let toDoDescription = toDoDescription,
+        let deadline = deadline else { return nil }
         
         return ToDoItemRepresentation(complete: complete,
                                       id: id,
-                                      title: title,
                                       date: date,
                                       toDoDescription: toDoDescription,
                                       toDoID: toDoID,

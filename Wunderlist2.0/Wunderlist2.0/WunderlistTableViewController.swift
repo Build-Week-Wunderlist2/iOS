@@ -11,27 +11,39 @@ import CoreData
 
 class WunderlistTableViewController: UITableViewController {
     
-    //MARK: - Properties
-    private let loginController = LoginController()
+    // MARK: - Properties
     private let toDoItemController = ToDoItemController()
+    private let loginController = LoginController()
+    
+    var taskID: Int16 = 0
+   // var bearer: Bearer?
     
     lazy var fetchedResultsController: NSFetchedResultsController<ToDoItem> = {
         let fetchRequest: NSFetchRequest<ToDoItem> = ToDoItem.fetchRequest()
         fetchRequest.sortDescriptors = [NSSortDescriptor(key: "date", ascending: true),
-                                        NSSortDescriptor(key: "title", ascending: true)]
+                                        NSSortDescriptor(key: "toDoDescription", ascending: true)]
         let moc = CoreDataStack.shared.mainContext
-        let frc = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: moc, sectionNameKeyPath: "date", cacheName: nil)
+        let frc = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: moc, sectionNameKeyPath: "complete", cacheName: nil)
         frc.delegate = self
-        try! frc.performFetch()
+        do {
+            try frc.performFetch()
+        } catch {
+            NSLog("Error fetching")
+        }
         return frc
     }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+//        if let bearer = loginController.bearer {
+//            toDoItemController.fetchToDoItemsFromServer(bearer: bearer)
+//            tableView.reloadData()
+//        }
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super .viewDidAppear(animated)
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        tableView.reloadData()
     }
     
     // MARK: - Table view data source
@@ -59,8 +71,9 @@ class WunderlistTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             let toDoToDelete = fetchedResultsController.object(at: indexPath)
+            guard let bearer = loginController.bearer else { return }
             
-            //toDoItemController.deleteToDoItemFromServer(toDoToDelete)
+            toDoItemController.deleteToDoItemFromServer(bearer: bearer, toDoItem: toDoToDelete)
             
             let moc = CoreDataStack.shared.mainContext
             moc.delete(toDoToDelete)
@@ -73,6 +86,20 @@ class WunderlistTableViewController: UITableViewController {
         }
     }
     
+   // MARK: Navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "createNewToDo",
+            let createVC = segue.destination as? CreateNewToDoItemViewController {
+            createVC.toDoItemID = taskID
+            guard let bearer = loginController.bearer else { return }
+            createVC.bearer = bearer
+        }
+    }
+    
+    // MARK: IBAction
+    @IBAction func backButtonPressed(_ sender: Any) {
+        navigationController?.dismiss(animated: true, completion: nil)
+    }
     
 }
 
