@@ -7,37 +7,74 @@
 //
 
 import XCTest
+@testable import Wunderlist2_0
 
 class Wunderlist2UITests: XCTestCase {
 
-    override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-
-        // In UI tests it is usually best to stop immediately when a failure occurs.
-        continueAfterFailure = false
-
-        // In UI tests it’s important to set the initial state - such as interface orientation - required for your tests before they run. The setUp method is a good place to do this.
+    override func setUp() {
+        super.setUp()
+        let app = XCUIApplication()
+        app.launchArguments.append("UITesting")
+    }
+    
+    func testSignInButtonExample() throws {
+        let app = XCUIApplication()
+        app.launch()
+        
+        app/*@START_MENU_TOKEN@*/.buttons["Sign In"]/*[[".segmentedControls.buttons[\"Sign In\"]",".buttons[\"Sign In\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
+        XCTAssert(app.staticTexts["Sign In"].exists)
+    }
+    
+    func testSignInandOutButtonExample() throws {
+        let app = XCUIApplication()
+        app.launch()
+        
+        app/*@START_MENU_TOKEN@*/.buttons["Sign In"]/*[[".segmentedControls.buttons[\"Sign In\"]",".buttons[\"Sign In\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
+        XCTAssert(app.staticTexts["Sign In"].exists)
+        app.buttons["Sign Up"].tap()
+        XCTAssert(app.staticTexts["Sign Up"].exists)
     }
 
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-    }
+    func testuserName() throws {
+        
+        let app = XCUIApplication()
+        app.launch()
+        
+        app/*@START_MENU_TOKEN@*/.buttons["Sign In"]/*[[".segmentedControls.buttons[\"Sign In\"]",".buttons[\"Sign In\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
 
-    func testExample() throws {
-        // UI tests must launch the application that they test.
+        let userName = app.textFields["username"]
+        userName.tap()
+        userName.typeText("clmaciel1")
+        
+        XCTAssertEqual(userName.value as! String, "clmaciel1")
+        
+    }
+    
+    func testPassword() throws {
+        let app = XCUIApplication()
+        app.launch()
+        
+        let password = app.textFields["password"]
+        password.tap()
+        password.typeText("clmaciel1")
+        
+        XCTAssertEqual(password.value as! String, "clmaciel1")
+    }
+    
+    func testSecurefield() throws {
         let app = XCUIApplication()
         app.launch()
 
-        // Use recording to get started writing UI tests.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-    }
-
-    func testLaunchPerformance() throws {
-        if #available(macOS 10.15, iOS 13.0, tvOS 13.0, *) {
-            // This measures how long it takes to launch your application.
-            measure(metrics: [XCTOSSignpostMetric.applicationLaunch]) {
-                XCUIApplication().launch()
-            }
-        }
+        let password = app.textFields["password"]
+        password.tap()
+        password.typeText("clmaciel1")
+        
+        XCTAssertFalse(password.secureTextFields["password"].exists)
     }
 }
+////if which swiftlint >/dev/null; then
+//  swiftlint
+//else
+//  echo "warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint"
+//fi
+
